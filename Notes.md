@@ -10,7 +10,9 @@
 - Mosfet Driver
   - DRV8305
 
-**For Resistors and capacitors(except C1), use 0603 size .**
+**For Resistors and capacitors(except C1), use 0603 size.**
+
+**Use T-stop Layer for non-綠油層**
 
 ## Programming
 
@@ -21,3 +23,4 @@
       - 
   
   
+
