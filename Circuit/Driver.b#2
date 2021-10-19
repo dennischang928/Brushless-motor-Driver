@@ -2485,6 +2485,7 @@ design rules under a new name.</description>
 <contactref element="U$3" pad="20"/>
 <contactref element="R1" pad="1"/>
 <contactref element="C2" pad="1"/>
+<wire x1="44.329" y1="18.669" x2="44.329" y2="19.64" width="0.254" layer="16"/>
 <contactref element="R2" pad="1"/>
 <contactref element="C3" pad="1"/>
 <contactref element="R5" pad="1"/>
