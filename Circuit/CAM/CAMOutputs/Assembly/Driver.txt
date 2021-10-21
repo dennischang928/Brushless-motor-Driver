@@ -1,0 +1,19 @@
+Partlist exported from /Users/changdennis/Drive/IS/F3/1st/Dat/Brushless Motor Driver/Circuit/Driver.sch at 10/21/21 23:26
+
+Qty Value        Device                    Package        Parts                        Description                    POPULARITY PROD_ID   SPICEPREFIX TP_SIGNAL_NAME VALUE
+1                BLUE_PILLADVANCED         BLUE_PILL_ADV  U$1                                                                                                              
+2                PINHD-1X12                1X12           JP1, JP2                     PIN HEADER                     28                                                   
+3                R-EU_R2512                R2512          R1, R2, R5                   RESISTOR, European symbol      0                    R                               
+3   1.0uF        1.0UF-0603-16V-10%-X7R    0603           C5, C6, C7                   1µF ceramic capacitors                    CAP-13930                            1.0uF
+1   100          R-US_R0603                R0603          R4                           RESISTOR, American symbol                           R                               
+1   10k          10KOHM-0603-1/10W-1%      0603           R6                           10kΩ resistor                             RES-00824                            10k  
+1   10k          R-US_R0603                R0603          R3                           RESISTOR, American symbol                           R                               
+3   1nF          1.0NF/1000PF-0603-50V-10% 0603           C2, C3, C4                   1nF/1,000pF ceramic capacitors            CAP-07886                            1nF  
+4   1uF          C-USC0603                 C0603          C1, C10, C15, C16            CAPACITOR, American symbol                          C                               
+1   2.2uF        C-USC0603                 C0603          C11                          CAPACITOR, American symbol                          C                               
+1   4.7uF        C-USC0603                 C0603          C12                          CAPACITOR, American symbol                          C                               
+2   47nF         C-USC0603                 C0603          C13, C14                     CAPACITOR, American symbol                          C                               
+1   DRV8305      DRV8305                   PFB_S-PQFP-G48 U$3                                                                                                              
+6   IRLR7843     IRLR7843                  TO252          U$2, U$4, U$5, U$6, U$7, U$8                                                                                     
+5   PTR1PAD1-20Y PTR1PAD1-20Y              P1-20Y         A, B, C, TP1, TP2            TEST PIN                       1                                                    
+1   TP2P2-38-17  TP2P2-38-17               P2-38-17       5V                           Test pad                       0                                                    
