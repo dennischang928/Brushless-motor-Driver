@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="25" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -283,6 +283,7 @@
 <wire x1="74.041" y1="16.891" x2="71.247" y2="16.891" width="1.016" layer="30"/>
 <wire x1="38.608" y1="18.923" x2="38.608" y2="18.669" width="5.842" layer="30"/>
 <text x="20.32" y="58.42" size="1.778" layer="25" rot="SR180">GND</text>
+<text x="17.145" y="7.62" size="1.778" layer="25" rot="R90">JLCJLCJLCJLC</text>
 </plain>
 <libraries>
 <library name="BluePill">

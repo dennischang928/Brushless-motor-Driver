@@ -1,4 +1,4 @@
-Partlist exported from /Users/changdennis/Drive/IS/F3/1st/Dat/Brushless Motor Driver/Circuit/Driver.sch at 10/21/21 23:26
+Partlist exported from /Users/changdennis/Drive/IS/F3/1st/Dat/Brushless Motor Driver/Circuit/Driver.sch at 10/22/21 09:53
 
 Qty Value        Device                    Package        Parts                        Description                    POPULARITY PROD_ID   SPICEPREFIX TP_SIGNAL_NAME VALUE
 1                BLUE_PILLADVANCED         BLUE_PILL_ADV  U$1                                                                                                              
