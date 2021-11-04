@@ -54,7 +54,7 @@ void setup()
 uint32_t last = 0;
 void loop()
 {
-x  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 2; i++) {
     if (can.receive(id, fltIdx, rxbytes) > -1) { // poll for rx
       Serial1.println(rxbytes[0]);
       digitalWrite(PB11, HIGH);
