@@ -17,6 +17,7 @@
       - INHC B7
       - INLC B8
       - EN_Gate B12
+      - NSS A4
 
 **For Resistors and capacitors(except C1), use 0603 size.**
 
