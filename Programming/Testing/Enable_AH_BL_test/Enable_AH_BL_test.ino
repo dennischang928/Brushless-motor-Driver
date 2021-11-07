@@ -25,7 +25,7 @@ void setup() {
 
   pinMode(INHC, OUTPUT);
   pinMode(INLC, OUTPUT);
-  pinMode(SO3, INPUT);  
+  pinMode(SO3, INPUT);
 
   pinMode(EN_GATE, OUTPUT);
   pinMode(LED, OUTPUT);
@@ -33,19 +33,30 @@ void setup() {
 
 }
 void loop() {
-
+//  digitalWrite(INHB, LOW);
+//  digitalWrite(INLA, LOW);
   digitalWrite(INHA, HIGH);
   digitalWrite(INLB, HIGH);
-  digitalWrite(LED, HIGH);
-  Serial.print(analogRead(SO1));
-  Serial.print(",");
-  Serial.print(analogRead(SO2));
-  Serial.print(",");
-  Serial.println(analogRead(SO3));
-  delay(10);
-  //  delay(1000);
-  //  digitalWrite(INHA, LOW);
-  //  digitalWrite(INLB, LOW);
-  //  digitalWrite(LED, LOW);
-  //  delay(1000);
+//  delay(1);
+//  digitalWrite(INLB, LOW);
+//  digitalWrite(INHA, HIGH);
+//  digitalWrite(INLC, HIGH);
+//  delay(1);
+//  digitalWrite(INHA, LOW);
+//  digitalWrite(INHB, HIGH);
+//  digitalWrite(INLC, HIGH);
+//  delay(1);
+//  digitalWrite(INHB, LOW);
+//  digitalWrite(INLC, LOW);
+//  digitalWrite(INLB, HIGH);
+//  digitalWrite(INHC, HIGH);
+//  delay(1);
+//  digitalWrite(INLB, LOW);
+//  digitalWrite(INHC, HIGH);
+//  digitalWrite(INLA, HIGH);
+//  delay(1);
+//  digitalWrite(INHC, LOW);
+//  digitalWrite(INHB, HIGH);
+//  digitalWrite(INLA, HIGH);
+  delay(1);
 }
