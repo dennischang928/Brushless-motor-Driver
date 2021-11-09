@@ -24,7 +24,6 @@
 word data;
 //SPI
 void setup() {
-
   //SPI
   SPI.begin(); //Initialize the SPI_1 port.
   SPI.setBitOrder(MSBFIRST); // Set the SPI_1 bit order
@@ -50,7 +49,6 @@ void setup() {
   pinMode(EN_GATE, OUTPUT);
   pinMode(LED, OUTPUT);
   digitalWrite(EN_GATE, HIGH);
-  sendSPI(0b0110000011001001);
 }
 
 
@@ -59,21 +57,12 @@ void loop() {
   //  sendSPI(0b1110000000000000);
   //  sendSPI(0b1001100000000000);// looking for 0x3 fault
   //  sendSPI(0b1100101000100000);
-  sendSPI(0b0100101000000000);
-  //  delay(1);
-  // 010 11001 000
-  //  sendSPI(0b);
-  //  sendSPI(0b);
-  //  delay(1);
-  //  delay(1);
-  //  sendSPI();
-  //    delay(100);
+  sendSPI(0b0100101001000000);
   digitalWrite(INHA, HIGH);
   digitalWrite(INLB, HIGH);
 
   //  Serial.println(digitalRead(nFAULT));
-  //  delay(100);
-  Serial.println( data, BIN);
+  Serial.println(data, BIN);
 }
 void sendSPI(word input)
 {
