@@ -41,38 +41,13 @@ void setup() {
 
   digitalWrite(EN_GATE, HIGH);
   sendSPI(0b0100101001000000);
-
 }
 
 
 void loop() {
-  digitalWrite(INHC, LOW);
-  digitalWrite(INLA, LOW);
-
+  sendSPI(0b0011101010010110); //3 pwm mode
   digitalWrite(INHA, HIGH);
-  digitalWrite(INLB, HIGH);
-  delay(10);
-  digitalWrite(INLB, LOW);
-  digitalWrite(INHA, HIGH);
-  digitalWrite(INLC, HIGH);
-  delay(10);
-  digitalWrite(INHA, LOW);
-  digitalWrite(INHB, HIGH);
-  digitalWrite(INLC, HIGH);
-  delay(10);
   digitalWrite(INHB, LOW);
-  digitalWrite(INLC, LOW);
-  digitalWrite(INLA, HIGH);
-  digitalWrite(INHB, HIGH);
-  delay(10);
-  digitalWrite(INHB, LOW);
-  digitalWrite(INHC, HIGH);
-  digitalWrite(INLA, HIGH);
-  delay(10);
-  digitalWrite(INLA, LOW);
-  digitalWrite(INHC, HIGH);
-  digitalWrite(INLA, HIGH);
-  delay(10);  
 }
 
 void DRV8305_SPI_Setup() {
