@@ -49,20 +49,28 @@ void setup() {
   pinMode(EN_GATE, OUTPUT);
   pinMode(LED, OUTPUT);
   digitalWrite(EN_GATE, HIGH);
+  sendSPI(0b0100111000100000); //prevent Voltage Drop shut down
+  delay(100);
+  sendSPI(0b0011101010010110); //3 pwm mode
+  delay(100);
 }
 
 
 void loop() {
+  //  sendSPI(0b0100111000100000); //prevent Voltage Drop shut down
+  //  delay(100);
+  //  sendSPI(0b0011101010010110); //3 pwm mode
+
   //  sendSPI(0b0110000011001001); // 0b|0|1100|000|11001|001
   //  sendSPI(0b1110000000000000);
-  //  sendSPI(0b1001100000000000);// looking for 0x3 fault
-  //  sendSPI(0b1100101000100000);
-  sendSPI(0b0100101001000000);
-  digitalWrite(INHA, HIGH);
-  digitalWrite(INLB, HIGH);
+  //  sendSPI(0b1000100000000000);// looking for 0x3 fault
+  //  sendSPI(0b1010000000000000);
 
-  //  Serial.println(digitalRead(nFAULT));
-  Serial.println(data, BIN);
+  digitalWrite(INHA, HIGH);
+  digitalWrite(INHB, LOW);
+  //  delay(1000)
+  Serial.println(digitalRead(nFAULT));
+  //  Serial.println(data, BIN);
 }
 void sendSPI(word input)
 {

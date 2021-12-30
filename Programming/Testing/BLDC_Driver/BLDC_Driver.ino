@@ -23,10 +23,16 @@ void setup() {
 
 }
 void loop() {
-  digitalWrite(INLB, HIGH);
+  digitalWrite(INHA, HIGH);
+  digitalWrite(INHB, HIGH);
+  digitalWrite(INHC, HIGH);
+
+
   digitalWrite(LED, HIGH);
   delay(1000);
-  digitalWrite(INLB, LOW);
+  digitalWrite(INHA, LOW);
+  digitalWrite(INHB, LOW);
+  digitalWrite(INHC, LOW);
   digitalWrite(LED, LOW);
   delay(1000);
 }

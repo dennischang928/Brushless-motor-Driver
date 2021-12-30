@@ -20,20 +20,40 @@
 
 BLDCMotor motor = BLDCMotor(6);
 BLDCDriver6PWM driver = BLDCDriver6PWM(INHA, INLA, INHB, INLB, INHC, INLC, EN_GATE);
-float target_velocity = -10;
+//BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 
-Commander command = Commander(Serial);
-void doTarget(char* cmd) {
-  command.scalar(&target_velocity, cmd);
-}
+float target_velocity = 10;
+
+//Commander command = Commander(Serial);
+//void doTarget(char* cmd) {
+//  command.scalar(&target_velocity, cmd);
+//}
 
 //SPI
 #define SPI1_NSS_PIN PA4
+
 word receive;
 //SPI
 void setup() {
   DRV8305_SPI_Setup();
   Serial.begin(115200);
+
+  pinMode(INHA, OUTPUT);
+  pinMode(INLA, OUTPUT);
+  pinMode(SO1, INPUT);
+
+  pinMode(INHB, OUTPUT);
+  pinMode(INLB, OUTPUT);
+  pinMode(SO2, INPUT);
+
+  pinMode(INHC, OUTPUT);
+  pinMode(INLC, OUTPUT);
+  pinMode(SO3, INPUT);
+
+  pinMode(EN_GATE, OUTPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(nFAULT, INPUT);
+
   driver.voltage_power_supply = 12;
   driver.init();
 
@@ -43,31 +63,35 @@ void setup() {
   // limiting motor current (provided resistance)
   motor.current_limit = 20;   // [Amps]
   motor.voltage_limit = 12;
+
   // open loop control config
   motor.foc_modulation = FOCModulationType::SinePWM;
   motor.controller = MotionControlType::velocity_openloop;
-
+  //
   // init motor hardware
   motor.init();
 
-  // add target command T
-  command.add('T', doTarget, "target velocity");
-
-  Serial.println("Motor ready!");
-  Serial.println("Set target velocity [rad/s]");
-
   digitalWrite(EN_GATE, HIGH);
-  sendSPI(0b0100101001000000);
-  delay(1000);
-  sendSPI(0b0011101010010110); //3 pwm mode
 
+
+  sendSPI(0b0100111000100000); //prevent Voltage Drop shut down
+  sendSPI(0b0011101010010110); //3 pwm mode
+  //  sendSPI(0b0101000000000000);
+  //  SPITest();
+  //  Serial.print("SPI Test:");
+  //  Serial.println(receive, BIN);
+  //  delay(3000);
 }
 
 void loop() {
+  sendSPI(0b0100111000100000); //prevent Voltage Drop shut down
+  sendSPI(0b0011101010010110);
+//  Serial.println(receive, BIN);
+  //  Serial.println("HEllo");
+  //  digitalWrite(INHB, HIGH);
   motor.move(target_velocity);
-  Serial.println(digitalRead(nFAULT));
-  // user communication
-  command.run();
+  //  Serial.println(receive, BIN);
+  //  Serial.println(digitalRead(nFAULT));
 }
 
 
@@ -84,4 +108,7 @@ void sendSPI(word input)
   digitalWrite(SPI1_NSS_PIN, LOW);
   receive = SPI.transfer16(input);
   digitalWrite(SPI1_NSS_PIN, HIGH);
+}
+void SPITest() {
+  sendSPI(0b1100100000000000);
 }

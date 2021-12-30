@@ -39,7 +39,7 @@ void setup() {
   pinMode(EN_GATE, OUTPUT);
   pinMode(LED, OUTPUT);
 
-  digitalWrite(EN_GATE, HIGH);
+  digitalWrite(EN_GATE, LOWZ);
   sendSPI(0b0100101001000000);
 }
 
@@ -47,7 +47,8 @@ void setup() {
 void loop() {
   sendSPI(0b0011101010010110); //3 pwm mode
   digitalWrite(INHA, HIGH);
-  digitalWrite(INHB, LOW);
+  digitalWrite(INHB, HIGH);
+  Serial.println(receive, BIN);
 }
 
 void DRV8305_SPI_Setup() {
