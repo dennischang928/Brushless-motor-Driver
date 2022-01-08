@@ -8420,7 +8420,6 @@ design rules under a new name.</description>
 <element name="TP1" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-20Y" package3d_urn="urn:adsk.eagle:package:27951/1" value="PTR1PAD1-20Y" x="33.88" y="5.588" smashed="yes">
 <attribute name="POPULARITY" value="1" x="61.82" y="-64.262" size="1.778" layer="27" display="off"/>
 <attribute name="TP_SIGNAL_NAME" value="" x="32.61" y="1.143" size="1" layer="37"/>
-<attribute name="VALUE" x="36.42" y="6.858" size="0.0254" layer="27"/>
 </element>
 <element name="TP2" library="testpad" library_urn="urn:adsk.eagle:library:385" package="P1-20Y" package3d_urn="urn:adsk.eagle:package:27951/1" value="PTR1PAD1-20Y" x="30.07" y="5.588" smashed="yes">
 <attribute name="POPULARITY" value="1" x="63.09" y="-64.262" size="1.778" layer="27" display="off"/>
