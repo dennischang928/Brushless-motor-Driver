@@ -59,12 +59,11 @@ void setup() {
 
   digitalWrite(EN_GATE, HIGH);
   //  sendSPI(0b0100111000100001); //prevent Voltage Drop shut down
-  sendSPI(0b0011101010010110);
+  sendSPI(0b0011101010010110); //3 pwm mode
   sendSPI(0b0101000000000000); // write the current amplifier to be the default value
   sendSPI(0b0101100100001010); // write the current amplifier to be the default value
   Serial.println(receive);
-
-  //  sendSPI(0b01011);
+  
   //new Code
   pinMode(SO1, INPUT);
   pinMode(SO2, INPUT);
@@ -77,37 +76,14 @@ int counter  = 0;
 double HAHA[1000];
 
 void loop() {
-  //  Serial.print((analogRead(SO1) / 4096. * 3.3));
-  //  Serial.print(',');
-  //  Serial.print((analogRead(SO2) / 4096. * 3.3));
-  //  Serial.print(',');
-  //  Serial.println((analogRead(SO3) / 4096. * 3.3));
-  //  digitalWrite(INHA, HIGH);
-  //  digitalWrite(INHB, LOW);
-  //  0.0025756836
-  //  delay()
-  //  digitalWrite(INHC, LOW);
-  //  Serial.println(Current_Calculation(analogRead(SO2) / 4096. * 3.3));
-  //  Serial.print(',');
-  //  Serial.println(Current_Calculation(1.5));
-  //  Serial.print(' ');
-  //  Serial.print((analogRead(SO1) / 4096. * 3.3), 10);
-  //  Serial.print(',');
-  //  Serial.print(Current_Calculation(analogRead(SO1) / 4096. * 3.3));
-  //  Serial.print(',');
-
-
-  HAHA[counter] = (Current_Calculation(analogRead(SO3) / 4096. * 3.3) / (5 / 1000.));
-  if (counter == 999) {
-    counter = 0;
-    double Average_Accumulated = 0;
-    for (int i = 0; i < 1000; i++) {
-      Average_Accumulated = Average_Accumulated + HAHA[i];
-    }
-    Serial.println(Average_Accumulated / 100);
-    Serial.println("--------------------------------------------------------");
-  }
-  counter ++;
+  digitalWrite(INHA, LOW);
+  digitalWrite(INHB, LOW);
+  digitalWrite(INHC, LOW);
+  Serial.print((analogRead(SO1) / 4096. * 3.3));
+  Serial.print("   ");
+  Serial.print((analogRead(SO2) / 4096. * 3.3));
+  Serial.print("   ");
+  Serial.println((analogRead(SO3) / 4096. * 3.3));
 }
 
 
@@ -131,7 +107,7 @@ double Current_Calculation(double RawVolt) {
   const double G = 10.;
   const double VREF = 5.;
 
-  //  return (VREF - (K * RawVolt)) / (G * K); //general solve
+  return (VREF - (K * RawVolt)) / (G * K); //general solve
   // y = 1.0181RawVolt - 0.0369
-  return (1.0181 * RawVolt - 0.0369); //stupid hard solve (mou's Way)
+  //  return (1.0181 * RawVolt - 0.0369); //stupid hard solve (mou's Way)
 }

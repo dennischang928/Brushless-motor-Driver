@@ -15,6 +15,7 @@
 #define LED PC13
 
 #define EN_GATE PB12
+#define nFAULT PB13
 
 //SPI
 #define SPI1_NSS_PIN PA4
@@ -39,16 +40,15 @@ void setup() {
   pinMode(EN_GATE, OUTPUT);
   pinMode(LED, OUTPUT);
 
-  digitalWrite(EN_GATE, LOWZ);
-  sendSPI(0b0100101001000000);
+  digitalWrite(EN_GATE, HIGH);
+  sendSPI(0b0011101010010110); //3 pwm mode
 }
 
 
 void loop() {
-  sendSPI(0b0011101010010110); //3 pwm mode
   digitalWrite(INHA, HIGH);
-  digitalWrite(INHB, HIGH);
-  Serial.println(receive, BIN);
+  digitalWrite(INHB, LOW);
+  Serial.println(digitalRead(nFAULT));
 }
 
 void DRV8305_SPI_Setup() {
