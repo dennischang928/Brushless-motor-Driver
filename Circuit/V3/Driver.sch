@@ -9473,6 +9473,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <approved hash="106,1,78.74,83.82,PC13,,,,,"/>
 <approved hash="106,1,78.74,86.36,PC14,,,,,"/>
 <approved hash="106,1,78.74,88.9,PC15,,,,,"/>
+<approved hash="111,1,200.66,149.86,PB14,,,,,"/>
 <approved hash="113,1,58.42,105.41,U$1,,,,,"/>
 <approved hash="113,1,151.31,-35.56,R1,,,,,"/>
 <approved hash="113,1,232.59,-35.56,R2,,,,,"/>
