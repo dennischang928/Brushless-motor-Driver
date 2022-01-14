@@ -8661,6 +8661,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="299.72" y="-30.48" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="LC" gate="G$1" pin="S"/>
 <wire x1="312.42" y1="-30.48" x2="312.42" y2="-45.72" width="0.1524" layer="91"/>
+<junction x="312.42" y="-30.48"/>
 </segment>
 <segment>
 <pinref part="5V" gate="A" pin="TP"/>
@@ -8712,6 +8713,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="215.9" y1="91.44" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
 <junction x="205.74" y="93.98"/>
+<junction x="215.9" y="91.44"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="EP"/>
@@ -8734,6 +8736,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="251.46" y1="83.82" x2="256.54" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="256.54" y1="83.82" x2="256.54" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="SUPPLY19" gate="GND" pin="GND"/>
+<junction x="256.54" y="83.82"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="SL_C"/>
@@ -8801,6 +8804,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C16" gate="G$1" pin="1"/>
 <pinref part="R7" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="96.52" x2="193.04" y2="96.52" width="0.1524" layer="91"/>
+<junction x="193.04" y="96.52"/>
 </segment>
 </net>
 <net name="PA7" class="0">
@@ -9170,6 +9174,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="271.78" y1="109.22" x2="251.46" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="271.78" y1="109.22" x2="274.32" y2="109.22" width="0.1524" layer="91"/>
 <label x="274.32" y="109.22" size="1.27" layer="95" xref="yes"/>
+<junction x="271.78" y="109.22"/>
 </segment>
 </net>
 <net name="GH_C" class="0">
@@ -9220,6 +9225,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="271.78" y1="121.92" x2="251.46" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="271.78" y1="121.92" x2="274.32" y2="121.92" width="0.1524" layer="91"/>
 <label x="274.32" y="121.92" size="1.27" layer="95" xref="yes"/>
+<junction x="271.78" y="121.92"/>
 </segment>
 </net>
 <net name="SN2" class="0">
@@ -9293,6 +9299,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="271.78" y1="134.62" x2="251.46" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="271.78" y1="134.62" x2="274.32" y2="134.62" width="0.1524" layer="91"/>
 <label x="274.32" y="134.62" size="1.27" layer="95" xref="yes"/>
+<junction x="271.78" y="134.62"/>
 </segment>
 </net>
 <net name="GH_A" class="0">
@@ -9326,6 +9333,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="195.58" y1="160.02" x2="200.66" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="200.66" y1="160.02" x2="200.66" y2="157.48" width="0.1524" layer="91"/>
+<junction x="195.58" y="160.02"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="REF"/>
@@ -9438,7 +9446,17 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </sheets>
 <errors>
 <approved hash="104,1,78.74,129.54,U$1,GND1,GND,,,"/>
-<approved hash="106,1,78.74,124.46,N$3,,,,,"/>
+<approved hash="104,1,215.9,129.54,IC1,GVDD,N$32,,,"/>
+<approved hash="104,1,215.9,127,IC1,CP1,N$33,,,"/>
+<approved hash="104,1,215.9,124.46,IC1,CP2,N$34,,,"/>
+<approved hash="104,1,215.9,104.14,IC1,DVDD,N$43,,,"/>
+<approved hash="104,1,215.9,93.98,IC1,AVDD,N$47,,,"/>
+<approved hash="104,1,215.9,91.44,IC1,AGND,GND,,,"/>
+<approved hash="104,1,251.46,149.86,IC1,GND_3,GND,,,"/>
+<approved hash="104,1,251.46,147.32,IC1,GND_2,GND,,,"/>
+<approved hash="104,1,251.46,144.78,IC1,GND_1,GND,,,"/>
+<approved hash="104,1,251.46,142.24,IC1,VDD_SPI,VCC,,,"/>
+<approved hash="104,1,251.46,91.44,IC1,PVDD,VIN,,,"/>
 <approved hash="106,1,78.74,121.92,N$4,,,,,"/>
 <approved hash="106,1,38.1,81.28,N$40,,,,,"/>
 <approved hash="106,1,78.74,91.44,PA0,,,,,"/>
@@ -9448,11 +9466,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <approved hash="106,1,38.1,109.22,PA12,,,,,"/>
 <approved hash="106,1,38.1,106.68,PA15,,,,,"/>
 <approved hash="106,1,38.1,104.14,PB3,,,,,"/>
-<approved hash="106,1,38.1,101.6,PB4,,,,,"/>
 <approved hash="106,1,38.1,99.06,PB5,,,,,"/>
 <approved hash="106,1,78.74,116.84,PB10,,,,,"/>
 <approved hash="106,1,78.74,119.38,PB11,,,,,"/>
-<approved hash="106,1,38.1,124.46,PB14,,,,,"/>
 <approved hash="106,1,38.1,121.92,PB15,,,,,"/>
 <approved hash="106,1,78.74,83.82,PC13,,,,,"/>
 <approved hash="106,1,78.74,86.36,PC14,,,,,"/>
@@ -9460,7 +9476,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <approved hash="113,1,58.42,105.41,U$1,,,,,"/>
 <approved hash="113,1,151.31,-35.56,R1,,,,,"/>
 <approved hash="113,1,232.59,-35.56,R2,,,,,"/>
-<approved hash="113,1,311.33,-35.56,R5,,,,,"/>
+<approved hash="113,1,222.253,-81.5594,A,,,,,"/>
+<approved hash="113,1,227.333,-81.5594,B,,,,,"/>
+<approved hash="113,1,232.413,-81.5594,C,,,,,"/>
 </errors>
 </schematic>
 </drawing>
