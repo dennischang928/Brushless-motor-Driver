@@ -22,19 +22,21 @@
       -  LED PC13
       -  EN_GATE PB12
       -  nFAULT PB13
+      -  nOCTW PB14
+      -  DC_CAL PB4
       -  SPI1_NSS_PIN PA4
 
-**For Resistors and capacitors(except C1), use 0603 size.**
+**For Resistors and Capacitors, use 0603 size.**
 
 **Use T-stop Layer for non-綠油層**
 
 ## Programming
 
 - MCU
+
   - Can Bus
     - Library
       [eXoCAN](https://github.com/exothink/eXoCAN)
       - 
-  
-  
 
+  
