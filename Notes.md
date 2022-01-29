@@ -24,7 +24,11 @@
       -  nFAULT PB13
       -  nOCTW PB14
       -  DC_CAL PB4
-      -  SPI1_NSS_PIN PA4
+      -  SPI
+         -  SPI1_NSS_PIN PA4
+         -  SDO PA6
+         -  SDI PA7
+         -  SCLK PA5
 
 **For Resistors and Capacitors, use 0603 size.**
 
