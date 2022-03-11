@@ -7957,6 +7957,29 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
+<library name="CR2512-FX-51R1ELF">
+<description>&lt;BOURNS - CR2512-FX-51R1ELF - RES 2512 51R1 1% 1W TC100 28X7511&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="RESC6331X75N">
+<description>&lt;b&gt;CR2512&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-3" y="0" dx="3.3" dy="1.25" layer="1" rot="R90"/>
+<smd name="2" x="3" y="0" dx="3.3" dy="1.25" layer="1" rot="R90"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-3.875" y1="1.9" x2="3.875" y2="1.9" width="0.05" layer="51"/>
+<wire x1="3.875" y1="1.9" x2="3.875" y2="-1.9" width="0.05" layer="51"/>
+<wire x1="3.875" y1="-1.9" x2="-3.875" y2="-1.9" width="0.05" layer="51"/>
+<wire x1="-3.875" y1="-1.9" x2="-3.875" y2="1.9" width="0.05" layer="51"/>
+<wire x1="-3.15" y1="1.55" x2="3.15" y2="1.55" width="0.1" layer="51"/>
+<wire x1="3.15" y1="1.55" x2="3.15" y2="-1.55" width="0.1" layer="51"/>
+<wire x1="3.15" y1="-1.55" x2="-3.15" y2="-1.55" width="0.1" layer="51"/>
+<wire x1="-3.15" y1="-1.55" x2="-3.15" y2="1.55" width="0.1" layer="51"/>
+<wire x1="0" y1="1.45" x2="0" y2="-1.45" width="0.2" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -8304,6 +8327,42 @@ design rules under a new name.</description>
 <attribute name="NAME" x="35.762" y="23.127" size="0.6096" layer="26" font="vector" ratio="20" rot="MR90" align="bottom-center"/>
 <attribute name="PROD_ID" value="CAP-07877" x="35" y="23.127" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="VALUE" x="34.238" y="23.127" size="0.6096" layer="28" font="vector" ratio="20" rot="MR90" align="top-center"/>
+</element>
+<element name="R3" library="CR2512-FX-51R1ELF" package="RESC6331X75N" value="CR2512-FX-51R1ELF" x="3" y="-3.25" smashed="yes">
+<attribute name="ARROW_PART_NUMBER" value="CR2512-FX-51R1ELF" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/cr2512-fx-51r1elf/bourns" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="BOURNS - CR2512-FX-51R1ELF - RES 2512 51R1 1% 1W TC100 28X7511" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="0.75mm" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="CR2512-FX-51R1ELF" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-CR2512FX51R1ELF" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-CR2512FX51R1ELF" x="3" y="-3.25" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="3" y="-3.25" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="3" y="-3.25" size="1.27" layer="27" align="center"/>
+</element>
+<element name="R8" library="CR2512-FX-51R1ELF" package="RESC6331X75N" value="CR2512-FX-51R1ELF" x="-2.25" y="-7.25" smashed="yes">
+<attribute name="ARROW_PART_NUMBER" value="CR2512-FX-51R1ELF" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/cr2512-fx-51r1elf/bourns" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="BOURNS - CR2512-FX-51R1ELF - RES 2512 51R1 1% 1W TC100 28X7511" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="0.75mm" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="CR2512-FX-51R1ELF" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-CR2512FX51R1ELF" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-CR2512FX51R1ELF" x="-2.25" y="-7.25" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-2.25" y="-7.25" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-2.25" y="-7.25" size="1.27" layer="27" align="center"/>
+</element>
+<element name="R9" library="CR2512-FX-51R1ELF" package="RESC6331X75N" value="CR2512-FX-51R1ELF" x="-7.5" y="-11.25" smashed="yes">
+<attribute name="ARROW_PART_NUMBER" value="CR2512-FX-51R1ELF" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/cr2512-fx-51r1elf/bourns" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value="BOURNS - CR2512-FX-51R1ELF - RES 2512 51R1 1% 1W TC100 28X7511" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="0.75mm" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="CR2512-FX-51R1ELF" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-CR2512FX51R1ELF" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-CR2512FX51R1ELF" x="-7.5" y="-11.25" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-7.5" y="-11.25" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-7.5" y="-11.25" size="1.27" layer="27" align="center"/>
 </element>
 </elements>
 <signals>
@@ -8960,14 +9019,9 @@ design rules under a new name.</description>
 <via x="37.6428" y="23.1648" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="SH_C">
-<contactref element="HC" pad="2"/>
-<contactref element="LC" pad="3"/>
 <contactref element="C" pad="1"/>
 <contactref element="IC1" pad="32"/>
 <contactref element="C13" pad="2"/>
-<wire x1="21.18" y1="13.168" x2="21.18" y2="2.199" width="2.794" layer="1"/>
-<wire x1="23.46" y1="18.568" x2="23.46" y2="15.448" width="3.556" layer="1"/>
-<wire x1="23.46" y1="15.448" x2="21.18" y2="13.168" width="3.556" layer="1"/>
 <wire x1="33.8328" y1="28.956" x2="33.8328" y2="28.0416" width="0.1524" layer="16"/>
 <wire x1="33.6804" y1="29.1084" x2="33.8328" y2="28.956" width="0.1524" layer="16"/>
 <wire x1="33.6804" y1="30.6324" x2="33.6804" y2="29.1084" width="0.1524" layer="1"/>
@@ -8978,11 +9032,13 @@ design rules under a new name.</description>
 <wire x1="33.6804" y1="28.4988" x2="33.6804" y2="29.1084" width="0.1524" layer="1"/>
 <wire x1="29.4132" y1="24.2316" x2="33.6804" y2="28.4988" width="0.1524" layer="1"/>
 <wire x1="24.8412" y1="19.6596" x2="29.4132" y2="24.2316" width="0.1524" layer="16"/>
-<wire x1="24.8412" y1="19.6596" x2="23.46" y2="18.568" width="0.1524" layer="1"/>
 <via x="33.6804" y="29.1084" extent="1-16" drill="0.35"/>
 <via x="32.004" y="32.3088" extent="1-16" drill="0.35"/>
 <via x="29.4132" y="24.2316" extent="1-16" drill="0.35"/>
 <via x="24.8412" y="19.6596" extent="1-16" drill="0.35"/>
+<contactref element="R9" pad="1"/>
+<wire x1="21.18" y1="2.199" x2="24.8412" y2="19.6596" width="0" layer="19" extent="1-1"/>
+<wire x1="-10.5" y1="-11.25" x2="21.18" y2="2.199" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GH_C">
 <contactref element="HC" pad="1"/>
@@ -9021,10 +9077,8 @@ design rules under a new name.</description>
 <signal name="SH_B">
 <contactref element="HB" pad="2"/>
 <contactref element="LB" pad="3"/>
-<contactref element="B" pad="1"/>
 <contactref element="IC1" pad="37"/>
 <contactref element="C12" pad="2"/>
-<wire x1="13.56" y1="13.168" x2="13.56" y2="2.199" width="2.794" layer="1"/>
 <wire x1="15.84" y1="18.568" x2="15.84" y2="15.448" width="3.556" layer="1"/>
 <wire x1="15.84" y1="15.448" x2="13.56" y2="13.168" width="3.556" layer="1"/>
 <wire x1="29.718" y1="29.2608" x2="29.718" y2="28.0416" width="0.1524" layer="16"/>
@@ -9046,6 +9100,8 @@ design rules under a new name.</description>
 <wire x1="29.5656" y1="31.0896" x2="29.55" y2="30.989" width="0.1524" layer="16"/>
 <wire x1="14.9352" y1="20.1168" x2="15.84" y2="18.568" width="0.1524" layer="1"/>
 <via x="14.0208" y="22.098" extent="1-16" drill="0.35"/>
+<contactref element="R8" pad="2"/>
+<wire x1="0.75" y1="-7.25" x2="13.56" y2="13.168" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SN2">
 <contactref element="R2" pad="2"/>
@@ -9168,16 +9224,9 @@ design rules under a new name.</description>
 <via x="4.8768" y="18.1356" extent="1-16" drill="0.35"/>
 </signal>
 <signal name="SH_A">
-<contactref element="HA" pad="2"/>
-<contactref element="LA" pad="3"/>
 <contactref element="A" pad="1"/>
 <contactref element="IC1" pad="42"/>
 <contactref element="C1" pad="2"/>
-<wire x1="8.22" y1="18.568" x2="8.22" y2="15.47" width="3.556" layer="1"/>
-<wire x1="8.22" y1="15.47" x2="5.5" y2="12.75" width="3.556" layer="1"/>
-<wire x1="5.5" y1="12.75" x2="5.522" y2="12.75" width="3.556" layer="1"/>
-<wire x1="5.522" y1="12.75" x2="5.94" y2="13.168" width="3.556" layer="1"/>
-<wire x1="5.94" y1="13.168" x2="5.94" y2="2.199" width="2.794" layer="1"/>
 <wire x1="25.6032" y1="28.956" x2="25.6032" y2="28.0416" width="0.1524" layer="16"/>
 <wire x1="26.67" y1="30.0228" x2="25.908" y2="29.2608" width="0.1524" layer="16"/>
 <wire x1="25.908" y1="29.2608" x2="25.6032" y2="28.956" width="0.1524" layer="16"/>
@@ -9195,10 +9244,12 @@ design rules under a new name.</description>
 <wire x1="22.4028" y1="27.7368" x2="22.4028" y2="28.4988" width="0.1524" layer="16"/>
 <wire x1="14.1732" y1="19.5072" x2="22.4028" y2="27.7368" width="0.1524" layer="16"/>
 <wire x1="9.7536" y1="19.5072" x2="14.1732" y2="19.5072" width="0.1524" layer="16"/>
-<wire x1="9.7536" y1="19.5072" x2="8.22" y2="18.568" width="0.1524" layer="1"/>
 <via x="25.908" y="29.1084" extent="1-16" drill="0.35"/>
 <via x="23.0124" y="29.5656" extent="1-16" drill="0.35"/>
 <via x="9.7536" y="19.5072" extent="1-16" drill="0.35"/>
+<contactref element="R3" pad="1"/>
+<wire x1="5.94" y1="2.199" x2="9.7536" y2="19.5072" width="0" layer="19" extent="1-1"/>
+<wire x1="0" y1="-3.25" x2="5.94" y2="2.199" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GH_A">
 <contactref element="HA" pad="1"/>
@@ -9451,6 +9502,29 @@ design rules under a new name.</description>
 <wire x1="34.5948" y1="38.5572" x2="34.55" y2="38.565" width="0.1524" layer="16"/>
 <via x="36.576" y="26.8224" extent="1-16" drill="0.35"/>
 <via x="36.4236" y="36.1188" extent="1-16" drill="0.35"/>
+</signal>
+<signal name="N$5">
+<contactref element="HA" pad="2"/>
+<contactref element="LA" pad="3"/>
+<wire x1="8.22" y1="18.568" x2="8.22" y2="15.47" width="3.556" layer="1"/>
+<wire x1="8.22" y1="15.47" x2="5.5" y2="12.75" width="3.556" layer="1"/>
+<wire x1="5.5" y1="12.75" x2="5.522" y2="12.75" width="3.556" layer="1"/>
+<wire x1="5.522" y1="12.75" x2="5.94" y2="13.168" width="3.556" layer="1"/>
+<contactref element="R3" pad="2"/>
+<wire x1="6" y1="-3.25" x2="5.94" y2="13.168" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$6">
+<contactref element="B" pad="1"/>
+<contactref element="R8" pad="1"/>
+<wire x1="-5.25" y1="-7.25" x2="13.56" y2="2.199" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$7">
+<contactref element="HC" pad="2"/>
+<contactref element="LC" pad="3"/>
+<wire x1="23.46" y1="18.568" x2="23.46" y2="15.448" width="3.556" layer="1"/>
+<wire x1="23.46" y1="15.448" x2="21.18" y2="13.168" width="3.556" layer="1"/>
+<contactref element="R9" pad="2"/>
+<wire x1="-4.5" y1="-11.25" x2="21.18" y2="13.168" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

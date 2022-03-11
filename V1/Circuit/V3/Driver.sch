@@ -8286,6 +8286,70 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="CR2512-FX-51R1ELF">
+<description>&lt;BOURNS - CR2512-FX-51R1ELF - RES 2512 51R1 1% 1W TC100 28X7511&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="RESC6331X75N">
+<description>&lt;b&gt;CR2512&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-3" y="0" dx="3.3" dy="1.25" layer="1" rot="R90"/>
+<smd name="2" x="3" y="0" dx="3.3" dy="1.25" layer="1" rot="R90"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-3.875" y1="1.9" x2="3.875" y2="1.9" width="0.05" layer="51"/>
+<wire x1="3.875" y1="1.9" x2="3.875" y2="-1.9" width="0.05" layer="51"/>
+<wire x1="3.875" y1="-1.9" x2="-3.875" y2="-1.9" width="0.05" layer="51"/>
+<wire x1="-3.875" y1="-1.9" x2="-3.875" y2="1.9" width="0.05" layer="51"/>
+<wire x1="-3.15" y1="1.55" x2="3.15" y2="1.55" width="0.1" layer="51"/>
+<wire x1="3.15" y1="1.55" x2="3.15" y2="-1.55" width="0.1" layer="51"/>
+<wire x1="3.15" y1="-1.55" x2="-3.15" y2="-1.55" width="0.1" layer="51"/>
+<wire x1="-3.15" y1="-1.55" x2="-3.15" y2="1.55" width="0.1" layer="51"/>
+<wire x1="0" y1="1.45" x2="0" y2="-1.45" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CR2512-FX-51R1ELF">
+<wire x1="5.08" y1="1.27" x2="12.7" y2="1.27" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-1.27" x2="12.7" y2="1.27" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-1.27" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
+<text x="13.97" y="6.35" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="13.97" y="3.81" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="1" x="0" y="0" visible="pad" length="middle"/>
+<pin name="2" x="17.78" y="0" visible="pad" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CR2512-FX-51R1ELF" prefix="R">
+<description>&lt;b&gt;BOURNS - CR2512-FX-51R1ELF - RES 2512 51R1 1% 1W TC100 28X7511&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://componentsearchengine.com/Datasheets/2/CR2512-FX-51R1ELF.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="CR2512-FX-51R1ELF" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="RESC6331X75N">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="CR2512-FX-51R1ELF" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/cr2512-fx-51r1elf/bourns" constant="no"/>
+<attribute name="DESCRIPTION" value="BOURNS - CR2512-FX-51R1ELF - RES 2512 51R1 1% 1W TC100 28X7511" constant="no"/>
+<attribute name="HEIGHT" value="0.75mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="CR2512-FX-51R1ELF" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-CR2512FX51R1ELF" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-CR2512FX51R1ELF" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -8362,6 +8426,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R7" library="SparkFun-Resistors" deviceset="0OHM" device="-0603-1/10W" value="0"/>
 <part name="SUPPLY24" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="C16" library="SparkFun-Capacitors" deviceset="2.2NF/2200PF" device="-0603-50V-10%" value="2.2nF"/>
+<part name="R3" library="CR2512-FX-51R1ELF" deviceset="CR2512-FX-51R1ELF" device=""/>
+<part name="R8" library="CR2512-FX-51R1ELF" deviceset="CR2512-FX-51R1ELF" device=""/>
+<part name="R9" library="CR2512-FX-51R1ELF" deviceset="CR2512-FX-51R1ELF" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8601,6 +8668,18 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="C16" gate="G$1" x="193.04" y="88.9" smashed="yes">
 <attribute name="NAME" x="194.564" y="91.821" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="194.564" y="86.741" size="1.778" layer="96" font="vector"/>
+</instance>
+<instance part="R3" gate="G$1" x="162.56" y="-58.42" smashed="yes" rot="R90">
+<attribute name="NAME" x="156.21" y="-44.45" size="1.778" layer="95" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="158.75" y="-44.45" size="1.778" layer="96" rot="R90" align="center-left"/>
+</instance>
+<instance part="R8" gate="G$1" x="241.3" y="-55.88" smashed="yes" rot="R90">
+<attribute name="NAME" x="234.95" y="-41.91" size="1.778" layer="95" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="237.49" y="-41.91" size="1.778" layer="96" rot="R90" align="center-left"/>
+</instance>
+<instance part="R9" gate="G$1" x="320.04" y="-55.88" smashed="yes" rot="R90">
+<attribute name="NAME" x="313.69" y="-41.91" size="1.778" layer="95" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="316.23" y="-41.91" size="1.778" layer="96" rot="R90" align="center-left"/>
 </instance>
 </instances>
 <busses>
@@ -9152,20 +9231,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </net>
 <net name="SH_C" class="0">
 <segment>
-<wire x1="312.42" y1="5.08" x2="312.42" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="-5.08" x2="299.72" y2="-5.08" width="0.1524" layer="91"/>
-<label x="299.72" y="-5.08" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="312.42" y1="-5.08" x2="320.04" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="320.04" y1="-5.08" x2="320.04" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="-63.5" x2="246.38" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="-63.5" x2="246.38" y2="-66.04" width="0.1524" layer="91"/>
 <wire x1="246.38" y1="-66.04" x2="233.68" y2="-66.04" width="0.1524" layer="91"/>
 <wire x1="233.68" y1="-66.04" x2="233.68" y2="-81.28" width="0.1524" layer="91"/>
-<junction x="312.42" y="-5.08"/>
-<pinref part="HC" gate="G$1" pin="S"/>
-<pinref part="LC" gate="G$1" pin="D"/>
-<wire x1="312.42" y1="-5.08" x2="312.42" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="C" gate="1" pin="P"/>
+<wire x1="320.04" y1="-55.88" x2="320.04" y2="-63.5" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="SH_C"/>
@@ -9210,13 +9282,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="233.68" y1="-5.08" x2="220.98" y2="-5.08" width="0.1524" layer="91"/>
 <label x="220.98" y="-5.08" size="1.27" layer="95" rot="R180" xref="yes"/>
 <wire x1="233.68" y1="-5.08" x2="241.3" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="241.3" y1="-5.08" x2="241.3" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="241.3" y1="-63.5" x2="228.6" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="228.6" y1="-63.5" x2="228.6" y2="-81.28" width="0.1524" layer="91"/>
 <junction x="233.68" y="-5.08"/>
 <pinref part="HB" gate="G$1" pin="S"/>
 <pinref part="LB" gate="G$1" pin="D"/>
-<pinref part="B" gate="1" pin="P"/>
+<wire x1="241.3" y1="-5.08" x2="241.3" y2="-38.1" width="0.1524" layer="91"/>
+<pinref part="R8" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="SH_B"/>
@@ -9279,18 +9349,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </net>
 <net name="SH_A" class="0">
 <segment>
-<wire x1="152.4" y1="5.08" x2="152.4" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="-5.08" x2="152.4" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="-5.08" x2="139.7" y2="-5.08" width="0.1524" layer="91"/>
-<label x="139.7" y="-5.08" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="152.4" y1="-5.08" x2="162.56" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="-5.08" x2="162.56" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="-63.5" x2="223.52" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="-63.5" x2="223.52" y2="-81.28" width="0.1524" layer="91"/>
-<junction x="152.4" y="-5.08"/>
-<pinref part="HA" gate="G$1" pin="S"/>
-<pinref part="LA" gate="G$1" pin="D"/>
 <pinref part="A" gate="1" pin="P"/>
+<wire x1="162.56" y1="-58.42" x2="162.56" y2="-63.5" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="SH_A"/>
@@ -9439,6 +9502,43 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="IC1" gate="G$1" pin="SO2"/>
 <pinref part="R7" gate="G$1" pin="2"/>
 <wire x1="215.9" y1="96.52" x2="205.74" y2="96.52" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="LA" gate="G$1" pin="D"/>
+<pinref part="HA" gate="G$1" pin="S"/>
+<wire x1="152.4" y1="5.08" x2="152.4" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="-5.08" x2="152.4" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="-5.08" x2="139.7" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="152.4" y="-5.08"/>
+<wire x1="152.4" y1="-5.08" x2="162.56" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="-5.08" x2="162.56" y2="-40.64" width="0.1524" layer="91"/>
+<label x="139.7" y="-5.08" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<wire x1="241.3" y1="-55.88" x2="241.3" y2="-63.5" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="-63.5" x2="228.6" y2="-63.5" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="-63.5" x2="228.6" y2="-81.28" width="0.1524" layer="91"/>
+<pinref part="B" gate="1" pin="P"/>
+<pinref part="R8" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="LC" gate="G$1" pin="D"/>
+<pinref part="HC" gate="G$1" pin="S"/>
+<wire x1="312.42" y1="5.08" x2="312.42" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="-5.08" x2="299.72" y2="-5.08" width="0.1524" layer="91"/>
+<junction x="312.42" y="-5.08"/>
+<wire x1="312.42" y1="-5.08" x2="312.42" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="-5.08" x2="320.04" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="320.04" y1="-5.08" x2="320.04" y2="-38.1" width="0.1524" layer="91"/>
+<label x="299.72" y="-5.08" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R9" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
