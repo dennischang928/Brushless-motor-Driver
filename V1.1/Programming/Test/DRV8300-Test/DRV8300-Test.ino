@@ -16,35 +16,86 @@ void setup() {
 
   Serial.begin(115200);
 }
+int delayValue = 10;
+int PWMValue = 100;
 void loop() {
-  //  digitalWrite(INHA, HIGH);
-  //  digitalWrite(INLA, LOW);
-  digitalWrite(INLC, LOW);
-  analogWrite(INHC, 200);
+  analogWrite(INHA, PWMValue);
+  digitalWrite(INLA, LOW);
+
+  digitalWrite(INHB, LOW);
   digitalWrite(INLB, HIGH);
-  delay(1000);
+
+  digitalWrite(INHC, LOW);
+  digitalWrite(INLC, LOW);
+
+  delay(delayValue);
+
+  analogWrite(INHA, PWMValue);
+  digitalWrite(INLA, LOW);
+
+  digitalWrite(INHB, LOW);
+  digitalWrite(INLB, LOW);
+
+  digitalWrite(INHC, LOW);
+  digitalWrite(INLC, HIGH);
+
+  delay(delayValue);
+
+  digitalWrite(INHA, LOW);
+  digitalWrite(INLA, LOW);
+
+  analogWrite(INHB, PWMValue);
+  digitalWrite(INLB, LOW);
+
+  digitalWrite(INHC, LOW);
+  digitalWrite(INLC, HIGH);
+
+  delay(delayValue);
+
+  digitalWrite(INHA, LOW);
+  digitalWrite(INLA, HIGH);
+
+  analogWrite(INHB, PWMValue);
+  digitalWrite(INLB, LOW);
+
+  digitalWrite(INHC, LOW);
+  digitalWrite(INLC, LOW);
+
+  delay(delayValue);
+
+  digitalWrite(INHA, LOW);
+  digitalWrite(INLA, HIGH);
+
+  digitalWrite(INHB, LOW);
+  digitalWrite(INLB, LOW);
+
+  analogWrite(INHC, PWMValue);
+  digitalWrite(INLC, LOW);
+
+  delay(delayValue);
+
+  digitalWrite(INHA, LOW);
+  digitalWrite(INLA, LOW);
+
+  digitalWrite(INHB, LOW);
+  digitalWrite(INLB, HIGH);
+
+  analogWrite(INHC, PWMValue);
+  digitalWrite(INLC, LOW);
+
+  delay(delayValue);
+
+}
+//void loop() {
+//  analogWrite(INHB, 10);
+//  digitalWrite(INLB, LOW);
+//
+//  digitalWrite(INHC, LOW);
 //  digitalWrite(INLC, HIGH);
 //
-//  digitalWrite(INLB, LOW);
-//  analogWrite(INHB, 200); 
-//  delay(1000); 
-  
-  //  for (int i = 0; i <= 200; i++) {
-  //    analogWrite(INLB, intensity_calculation(i));
-  //    analogWrite(INLA, intensity_calculation(i));
-  //    analogWrite(INLC, intensity_calculation(i));
-  //    Serial.println(intensity_calculation(i));
-  //    delay(5);
-  //  }
-  //  for (int i = 200; i >= 0; i--) {
-  //    analogWrite(INLB, intensity_calculation(i));
-  //    analogWrite(INLA, intensity_calculation(i));
-  //    analogWrite(INLC, intensity_calculation(i));
-  //
-  //    Serial.println(intensity_calculation(i));
-  //    delay(5);
-  //  }
-}
+//  digitalWrite(INHA, LOW);
+//  digitalWrite(INLA, LOW);
+//}
 
 int intensity_calculation (int x) {
   float a = -(1 / 200.);

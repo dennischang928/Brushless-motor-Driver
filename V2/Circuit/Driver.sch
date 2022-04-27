@@ -3147,10 +3147,10 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <part name="C1" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="10uF"/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
-<part name="U$2" library="BLDC project" deviceset="IRLR7843" device=""/>
-<part name="U$3" library="BLDC project" deviceset="IRLR7843" device=""/>
-<part name="U$6" library="BLDC project" deviceset="IRLR7843" device=""/>
-<part name="U$7" library="BLDC project" deviceset="IRLR7843" device=""/>
+<part name="H-A" library="BLDC project" deviceset="IRLR7843" device=""/>
+<part name="L-A" library="BLDC project" deviceset="IRLR7843" device=""/>
+<part name="H-C" library="BLDC project" deviceset="IRLR7843" device=""/>
+<part name="L-C" library="BLDC project" deviceset="IRLR7843" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="R1" library="SparkFun-Resistors" deviceset="100OHM" device="-0603-1/10W-1%" value="100"/>
@@ -3159,8 +3159,8 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <part name="R4" library="SparkFun-Resistors" deviceset="100OHM" device="-0603-1/10W-1%" value="100"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="100OHM" device="-0603-1/10W-1%" value="100"/>
 <part name="R6" library="SparkFun-Resistors" deviceset="100OHM" device="-0603-1/10W-1%" value="100"/>
-<part name="U$4" library="BLDC project" deviceset="IRLR7843" device=""/>
-<part name="U$5" library="BLDC project" deviceset="IRLR7843" device=""/>
+<part name="H-B" library="BLDC project" deviceset="IRLR7843" device=""/>
+<part name="L-B" library="BLDC project" deviceset="IRLR7843" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
@@ -3202,10 +3202,10 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <instance part="P+2" gate="VCC" x="137.16" y="111.76" smashed="yes">
 <attribute name="VALUE" x="134.62" y="109.22" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$2" gate="G$1" x="157.48" y="60.96" smashed="yes"/>
-<instance part="U$3" gate="G$1" x="157.48" y="43.18" smashed="yes"/>
-<instance part="U$6" gate="G$1" x="208.28" y="60.96" smashed="yes"/>
-<instance part="U$7" gate="G$1" x="208.28" y="43.18" smashed="yes"/>
+<instance part="H-A" gate="G$1" x="157.48" y="60.96" smashed="yes"/>
+<instance part="L-A" gate="G$1" x="157.48" y="43.18" smashed="yes"/>
+<instance part="H-C" gate="G$1" x="208.28" y="60.96" smashed="yes"/>
+<instance part="L-C" gate="G$1" x="208.28" y="43.18" smashed="yes"/>
 <instance part="P+3" gate="VCC" x="160.02" y="73.66" smashed="yes">
 <attribute name="VALUE" x="157.48" y="71.12" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -3236,8 +3236,8 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <attribute name="NAME" x="172.72" y="42.164" size="1.778" layer="95" font="vector" align="bottom-center"/>
 <attribute name="VALUE" x="172.72" y="39.116" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
-<instance part="U$4" gate="G$1" x="182.88" y="60.96" smashed="yes"/>
-<instance part="U$5" gate="G$1" x="182.88" y="43.18" smashed="yes"/>
+<instance part="H-B" gate="G$1" x="182.88" y="60.96" smashed="yes"/>
+<instance part="L-B" gate="G$1" x="182.88" y="43.18" smashed="yes"/>
 <instance part="P+4" gate="VCC" x="185.42" y="73.66" smashed="yes">
 <attribute name="VALUE" x="182.88" y="71.12" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -3349,17 +3349,17 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <pinref part="GND" gate="G$1" pin="TP"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="S"/>
+<pinref part="L-A" gate="G$1" pin="S"/>
 <wire x1="160.02" y1="38.1" x2="160.02" y2="30.48" width="0.1524" layer="91"/>
 <label x="160.02" y="30.48" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$7" gate="G$1" pin="S"/>
+<pinref part="L-C" gate="G$1" pin="S"/>
 <wire x1="210.82" y1="38.1" x2="210.82" y2="30.48" width="0.1524" layer="91"/>
 <label x="210.82" y="30.48" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U$5" gate="G$1" pin="S"/>
+<pinref part="L-B" gate="G$1" pin="S"/>
 <wire x1="185.42" y1="38.1" x2="185.42" y2="30.48" width="0.1524" layer="91"/>
 <label x="185.42" y="30.48" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -3850,6 +3850,7 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <wire x1="190.5" y1="134.62" x2="180.34" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="D4" gate="G$1" pin="C"/>
 <junction x="172.72" y="147.32"/>
+<junction x="180.34" y="134.62"/>
 </segment>
 </net>
 <net name="GHA" class="0">
@@ -3866,9 +3867,9 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 </net>
 <net name="SHA" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="S"/>
+<pinref part="H-A" gate="G$1" pin="S"/>
 <wire x1="160.02" y1="55.88" x2="160.02" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="D"/>
+<pinref part="L-A" gate="G$1" pin="D"/>
 <wire x1="160.02" y1="53.34" x2="160.02" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="53.34" x2="162.56" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="160.02" y1="53.34" x2="154.94" y2="53.34" width="0.1524" layer="91"/>
@@ -3910,6 +3911,7 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <wire x1="246.38" y1="162.56" x2="228.6" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="D5" gate="G$1" pin="C"/>
 <junction x="228.6" y="162.56"/>
+<junction x="236.22" y="149.86"/>
 </segment>
 </net>
 <net name="GHB" class="0">
@@ -3926,9 +3928,9 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 </net>
 <net name="SHB" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="S"/>
+<pinref part="H-B" gate="G$1" pin="S"/>
 <wire x1="185.42" y1="55.88" x2="185.42" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="D"/>
+<pinref part="L-B" gate="G$1" pin="D"/>
 <wire x1="185.42" y1="53.34" x2="185.42" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="48.26" x2="185.42" y2="45.72" width="0.1524" layer="91"/>
 <junction x="185.42" y="48.26"/>
@@ -3971,6 +3973,7 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <wire x1="294.64" y1="149.86" x2="284.48" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="D6" gate="G$1" pin="C"/>
 <junction x="276.86" y="162.56"/>
+<junction x="284.48" y="149.86"/>
 </segment>
 </net>
 <net name="GHC" class="0">
@@ -3987,9 +3990,9 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 </net>
 <net name="SHC" class="0">
 <segment>
-<pinref part="U$6" gate="G$1" pin="S"/>
+<pinref part="H-C" gate="G$1" pin="S"/>
 <wire x1="210.82" y1="55.88" x2="210.82" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="D"/>
+<pinref part="L-C" gate="G$1" pin="D"/>
 <wire x1="210.82" y1="53.34" x2="210.82" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="210.82" y1="48.26" x2="210.82" y2="45.72" width="0.1524" layer="91"/>
 <junction x="210.82" y="48.26"/>
@@ -4043,17 +4046,17 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 </segment>
 <segment>
 <pinref part="P+3" gate="VCC" pin="VCC"/>
-<pinref part="U$2" gate="G$1" pin="D"/>
+<pinref part="H-A" gate="G$1" pin="D"/>
 <wire x1="160.02" y1="71.12" x2="160.02" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+5" gate="VCC" pin="VCC"/>
-<pinref part="U$6" gate="G$1" pin="D"/>
+<pinref part="H-C" gate="G$1" pin="D"/>
 <wire x1="210.82" y1="71.12" x2="210.82" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
-<pinref part="U$4" gate="G$1" pin="D"/>
+<pinref part="H-B" gate="G$1" pin="D"/>
 <wire x1="185.42" y1="71.12" x2="185.42" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -4063,6 +4066,7 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <wire x1="165.1" y1="147.32" x2="167.64" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="D4" gate="G$1" pin="A"/>
 <junction x="167.64" y="147.32"/>
+<junction x="165.1" y="147.32"/>
 </segment>
 <segment>
 <pinref part="U5" gate="G$1" pin="VCC"/>
@@ -4071,6 +4075,7 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <wire x1="223.52" y1="162.56" x2="220.98" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="D5" gate="G$1" pin="A"/>
 <junction x="223.52" y="162.56"/>
+<junction x="220.98" y="162.56"/>
 </segment>
 <segment>
 <pinref part="U6" gate="G$1" pin="VCC"/>
@@ -4079,46 +4084,47 @@ Ingenieurbüro ing-rb, mail@ing-rb.de&lt;/p&gt;</description>
 <wire x1="269.24" y1="162.56" x2="271.78" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="D6" gate="G$1" pin="A"/>
 <junction x="271.78" y="162.56"/>
+<junction x="269.24" y="162.56"/>
 </segment>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="G"/>
+<pinref part="H-A" gate="G$1" pin="G"/>
 <wire x1="154.94" y1="58.42" x2="152.4" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="U$6" gate="G$1" pin="G"/>
+<pinref part="H-C" gate="G$1" pin="G"/>
 <wire x1="205.74" y1="58.42" x2="203.2" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="U$3" gate="G$1" pin="G"/>
+<pinref part="L-A" gate="G$1" pin="G"/>
 <wire x1="154.94" y1="40.64" x2="152.4" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="U$7" gate="G$1" pin="G"/>
+<pinref part="L-C" gate="G$1" pin="G"/>
 <wire x1="205.74" y1="40.64" x2="203.2" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="G"/>
+<pinref part="H-B" gate="G$1" pin="G"/>
 <wire x1="180.34" y1="58.42" x2="177.8" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
-<pinref part="U$5" gate="G$1" pin="G"/>
+<pinref part="L-B" gate="G$1" pin="G"/>
 <wire x1="180.34" y1="40.64" x2="177.8" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 </segment>
