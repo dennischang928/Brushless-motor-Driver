@@ -86,7 +86,7 @@ void setup() {
 void loop() {
   sendSPI(0b0100111000100000); //prevent Voltage Drop shut down
   sendSPI(0b0011101010010110);
-//  Serial.println(receive, BIN);
+  //  Serial.println(receive, BIN);
   //  Serial.println("HEllo");
   //  digitalWrite(INHB, HIGH);
   motor.move(target_velocity);

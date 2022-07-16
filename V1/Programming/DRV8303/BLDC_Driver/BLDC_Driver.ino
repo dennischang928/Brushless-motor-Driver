@@ -12,37 +12,85 @@
 
 #define EN_GATE PB12
 
+#define NOCTW PB14
+#define NFAULT PB13
+
 #define chipSelectPin PA4
+word data;
+
+void changeSPI()
+{
+  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b0001000000001001); //0 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+}
+
+void ReadStatus()
+{
+  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1000000000000000); //1 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+}
+
+void ReadSPI () {
+  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1001000000000000); //1 0010 00000000000
+  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+}
+
 
 void setup() {
-  DRV8305_SPI_Setup();
-
+  SPI.begin();
+  SPI.setBitOrder(MSBFIRST);
+  SPI.setDataMode(SPI_MODE1);
+  SPI.setClockDivider(SPI_CLOCK_DIV16);
+  pinMode(chipSelectPin, OUTPUT);
+  Serial.begin(115200);
   pinMode(INHA, OUTPUT);
   pinMode(INLA, OUTPUT);
   pinMode(INHB, OUTPUT);
-  pinMode(INLB, OUTPUT);
+  pinMode(INLB, INPUT);
   pinMode(INHC, OUTPUT);
-  pinMode(INLC, OUTPUT);
+  pinMode(INLC, INPUT);
   pinMode(EN_GATE, OUTPUT);
+  pinMode(NOCTW, INPUT);
+  pinMode(NFAULT, INPUT);
+
   pinMode(LED, OUTPUT);
   digitalWrite(EN_GATE, HIGH);
+
+  for (int i = 0; i < 20; i++) {
+    changeSPI();
+    delay(10);
+  }
+  //   analogWrite(INHA, 200);
 }
 void loop() {
-  writeRegister(0b0010, 0b00000000000);
-  readRegister(0b0010);
-  delay(1000);
-  SwitchA(HIGH);
-  SwitchB(HIGH);
-  SwitchC(LOW);
+  //  changeSPI();
+  delay(10);
+  ReadSPI();
+  //    analogWrite(INHB, 200);
+  //  digitalWrite(INHA, LOW);
+  //
+  //  Serial.println(data, BIN);
+
+  //    Serial.print("Fault: ");
+  //    Serial.println(digitalRead(NFAULT));
+  //
+  //  Serial.print(" OCTW: ");
+  //  Serial.println(digitalRead(NOCTW));
+  //10101
 }
+//
+
 
 void SwitchA (bool Status) {
   digitalWrite(INHA, Status);
-  digitalWrite(INLA, !Status);
+  //  digitalWrite(INLA, !Status);
 }
 void SwitchB (bool Status) {
   digitalWrite(INHB, Status);
-  digitalWrite(INLB, !Status);
+  //  digitalWrite(INLB, !Status);
 }
 void SwitchC (bool Status) {
   digitalWrite(INHC, Status);
