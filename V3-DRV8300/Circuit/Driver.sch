@@ -8340,10 +8340,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C8" library="SparkFun-Capacitors" deviceset="2.2UF" device="-0603-10V-20%" value="2.2uF"/>
 <part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="C9" library="SparkFun-Capacitors" deviceset="0.22UF" device="-0603-25V-10%" value="0.22uF"/>
-<part name="C10" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
+<part name="DVDD_CAP" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
 <part name="SUPPLY4" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
-<part name="C11" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
+<part name="AVDD_CAP" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
 <part name="SUPPLY10" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY15" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="0.1UF" device="-0603-25V-(+80/-20%)" value="0.1uF"/>
@@ -8527,7 +8527,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="NAME" x="207.899" y="128.524" size="1.778" layer="95" font="vector" rot="R90"/>
 <attribute name="VALUE" x="212.979" y="128.524" size="1.778" layer="96" font="vector" rot="R90"/>
 </instance>
-<instance part="C10" gate="G$1" x="205.74" y="104.14" smashed="yes" rot="R90">
+<instance part="DVDD_CAP" gate="G$1" x="205.74" y="104.14" smashed="yes" rot="R90">
 <attribute name="NAME" x="202.819" y="105.664" size="1.778" layer="95" font="vector" rot="R90"/>
 <attribute name="VALUE" x="200.279" y="105.664" size="1.778" layer="96" font="vector" rot="R90"/>
 </instance>
@@ -8537,7 +8537,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="P+4" gate="VCC" x="208.28" y="101.6" smashed="yes" rot="R90">
 <attribute name="VALUE" x="205.74" y="101.6" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C11" gate="G$1" x="208.28" y="93.98" smashed="yes" rot="R270">
+<instance part="AVDD_CAP" gate="G$1" x="208.28" y="93.98" smashed="yes" rot="R270">
 <attribute name="NAME" x="211.201" y="92.456" size="1.778" layer="95" font="vector" rot="R270"/>
 <attribute name="VALUE" x="206.121" y="92.456" size="1.778" layer="96" font="vector" rot="R270"/>
 </instance>
@@ -8701,13 +8701,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="SUPPLY3" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="C10" gate="G$1" pin="1"/>
+<pinref part="DVDD_CAP" gate="G$1" pin="1"/>
 <wire x1="200.66" y1="104.14" x2="198.12" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="GND" pin="GND"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="AGND"/>
-<pinref part="C11" gate="G$1" pin="2"/>
+<pinref part="AVDD_CAP" gate="G$1" pin="2"/>
 <wire x1="205.74" y1="93.98" x2="205.74" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="205.74" y1="91.44" x2="215.9" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="91.44" x2="215.9" y2="88.9" width="0.1524" layer="91"/>
@@ -9416,14 +9416,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="N$43" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="DVDD"/>
-<pinref part="C10" gate="G$1" pin="2"/>
+<pinref part="DVDD_CAP" gate="G$1" pin="2"/>
 <wire x1="215.9" y1="104.14" x2="208.28" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$47" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="AVDD"/>
-<pinref part="C11" gate="G$1" pin="1"/>
+<pinref part="AVDD_CAP" gate="G$1" pin="1"/>
 <wire x1="215.9" y1="93.98" x2="213.36" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>

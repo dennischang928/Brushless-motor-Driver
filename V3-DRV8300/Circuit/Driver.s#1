@@ -8694,7 +8694,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 <pinref part="IC1" gate="G$1" pin="DTC"/>
 <wire x1="195.58" y1="144.78" x2="215.9" y2="144.78" width="0.1524" layer="91"/>
-<junction x="195.58" y="144.78"/>
 </segment>
 <segment>
 <pinref part="C8" gate="G$1" pin="2"/>
