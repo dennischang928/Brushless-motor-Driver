@@ -33,11 +33,9 @@ int PWMValue = 100;
 
 void loop()
 {
-  analogWrite(INHB, 100);
-  analogWrite(INHA, 100);
-  // writeRegister(0x02, 0b00000001000);
-  delay(1000);
-  readRegister(0x00);
+  analogWrite(INHA, 126);
+  analogWrite(INHB, 126);
+  analogWrite(INHC, 126);
 }
 
 void DRV8305_SPI_Setup()

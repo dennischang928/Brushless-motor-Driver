@@ -24,11 +24,6 @@ BLDCDriver6PWM driver = BLDCDriver6PWM(INHA, INLA, INHB, INLB, INHC, INLC, EN_GA
 
 float target_velocity = 10;
 
-//Commander command = Commander(Serial);
-//void doTarget(char* cmd) {
-//  command.scalar(&target_velocity, cmd);
-//}
-
 //SPI
 #define SPI1_NSS_PIN PA4
 

@@ -9405,9 +9405,9 @@ design rules under a new name.</description>
 <contactref element="C10" pad="2"/>
 <wire x1="30.7848" y1="42.3672" x2="30.7848" y2="44.8056" width="0.1524" layer="16"/>
 <wire x1="33.0708" y1="40.0812" x2="30.7848" y2="42.3672" width="0.1524" layer="16"/>
-<wire x1="33.0708" y1="38.7096" x2="33.0708" y2="40.0812" width="0.1524" layer="16"/>
+<wire x1="33.0708" y1="38.5858" x2="33.0708" y2="40.0812" width="0.1524" layer="16"/>
 <wire x1="30.7848" y1="44.8056" x2="30.676" y2="44.9" width="0.1524" layer="16"/>
-<wire x1="33.0708" y1="38.7096" x2="33.05" y2="38.565" width="0.1524" layer="16"/>
+<wire x1="33.0708" y1="38.5858" x2="33.05" y2="38.565" width="0.1524" layer="16"/>
 </signal>
 <signal name="N$47">
 <contactref element="IC1" pad="23"/>

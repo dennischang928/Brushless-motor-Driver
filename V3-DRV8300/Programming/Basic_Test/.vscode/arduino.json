@@ -1,5 +1,6 @@
 {
-    "configuration": "upload_method=STLinkMethod,cpu_speed=speed_72mhz,opt=osstd",
-    "board": "stm32duino:STM32F1:genericSTM32F103C6",
-    "sketch": "Switch_High_Low/Switch_High_Low.ino"
+    "configuration": "device_variant=STM32F103C8,upload_method=STLinkMethod,cpu_speed=speed_72mhz,opt=osstd",
+    "board": "stm32duino:STM32F1:genericSTM32F103C",
+    "sketch": "Switch_High_Low/Switch_High_Low.ino",
+    "port": "/dev/tty.usbmodem143201"
 }
