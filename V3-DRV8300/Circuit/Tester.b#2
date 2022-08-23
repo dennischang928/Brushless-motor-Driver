@@ -1027,7 +1027,7 @@ design rules under a new name.</description>
 <wire x1="16.36235" y1="11.895" x2="16.45553125" y2="11.895" width="0.635" layer="1"/>
 <wire x1="16.45553125" y1="11.895" x2="16.46823125" y2="11.9077" width="0.635" layer="1"/>
 <wire x1="16.46823125" y1="11.9077" x2="17.758" y2="11.9077" width="0.635" layer="1"/>
-<wire x1="17.758" y1="11.9736" x2="17.758" y2="12.03" width="0" layer="19" extent="1-1"/>
+<wire x1="17.758" y1="12.03" x2="17.758" y2="11.9736" width="0" layer="19" extent="1-1"/>
 <wire x1="17.758" y1="11.9077" x2="17.758" y2="11.9736" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="EN_GATE">
