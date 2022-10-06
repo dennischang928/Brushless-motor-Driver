@@ -68,20 +68,18 @@ void setup() {
 }
 
 void loop() {
-
-  if (digitalRead(NOCTW) == 0) {
-    Serial.println("NOCTW 0");
-
-  }
-
+  ReadStatus();
   if (digitalRead(NFAULT) == 0) {
-    ReadStatus();
     Serial.println(data, BIN);
-
-    Serial.println("NFAULT 0");
+    Serial.println("NFAULT!!!!!!");
   }
-  //  changeSPI();
-  analogWrite(INHA, 1);
+  if (digitalRead(NOCTW) == 0) {
+    Serial.println(data, BIN);
+    Serial.println("NOCTW!!!!!!");
+  }
+
+  analogWrite(INHC, 10);
   digitalWrite(INHB, LOW);
-  digitalWrite(INHC, LOW);
+  digitalWrite(INHA, LOW);
+
 }

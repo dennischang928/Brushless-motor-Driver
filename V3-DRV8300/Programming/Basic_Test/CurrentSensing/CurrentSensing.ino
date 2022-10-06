@@ -20,26 +20,39 @@
 #define chipSelectPin PA4
 word data;
 
-void changeSPI3PWM()
+HardwareSerial Serial3(PA3, PA2);
+
+void changeSPI()
 {
-  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
-  data = SPI.transfer16(0b0001000000001000); //0 0010 00000111000
-  digitalWrite(chipSelectPin, HIGH);
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b0001000000001000); // 0 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
-void changeCurrentSense() {
-  digitalWrite(chipSelectPin, LOW);
-  data = SPI.transfer16(0b000110000000000); //0 0011 0000000000
-  digitalWrite(chipSelectPin, HIGH);
+void ReadStatus()
+{
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1000000000000000); // 1 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
-void setup() {
+void ReadSPI()
+{
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1001000000000000); // 1 0010 00000000000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
+}
+
+void setup()
+{
+  Serial3.begin(115200);
+  delay(1);
   SPI.begin();
   SPI.setBitOrder(MSBFIRST);
   SPI.setDataMode(SPI_MODE1);
   SPI.setClockDivider(SPI_CLOCK_DIV16);
   pinMode(chipSelectPin, OUTPUT);
-  Serial.begin(115200);
+
   pinMode(INHA, OUTPUT);
   pinMode(INLA, INPUT);
   pinMode(SO1, INPUT);
@@ -52,44 +65,53 @@ void setup() {
   pinMode(INLC, INPUT);
 
   pinMode(EN_GATE, OUTPUT);
-  pinMode(PB4, OUTPUT);
-
   pinMode(NOCTW, INPUT);
   pinMode(NFAULT, INPUT);
+  pinMode(PB4, INPUT);
 
   pinMode(LED, OUTPUT);
-
-  digitalWrite(PB4, LOW); //PB4 is the DC_CAL PIN
   digitalWrite(EN_GATE, HIGH);
+  digitalWrite(PB4, LOW);
 
-
-  changeSPI3PWM();
-  changeCurrentSense();
+  for (int i = 0; i < 20; i++)
+  {
+    changeSPI();
+    delay(10);
+  }
 }
 
+void loop()
+{
+  if (digitalRead(NOCTW) == 0)
+  {
+    Serial3.println("NOCTW 0");
+  }
 
-
-void loop() {
-  digitalWrite(INHB, HIGH);
+  if (digitalRead(NFAULT) == 0)
+  {
+    Serial3.println("NFAULT 0");
+  }
+  //  changeSPI();
   digitalWrite(INHA, HIGH);
+
+  digitalWrite(INHB, HIGH);
   digitalWrite(INHC, HIGH);
 
-  if (digitalRead(NFAULT) == LOW) {
-    Serial.println("NFault low");
-  }
+  double I_A = (Current_Calculation(analogRead(SO1) / 4096. * 3.3));
+  double I_B = (Current_Calculation(analogRead(SO2) / 4096. * 3.3));
+  //  double I_C = -(I_A + I_B);
 
-  if (digitalRead(NOCTW) == LOW) {
-    Serial.println("NOCTW low");
-  }
-
-  Serial.print(Current_Calculation(analogRead(SO1) / 4096. *3.3), 10);
-  Serial.print("    ");
-  Serial.println(Current_Calculation(analogRead(SO2) / 4096. *3.3), 10);
+  Serial3.print(I_A, 6);
+  Serial3.print("  ");
+  Serial3.println(I_B, 6);
 }
 
-double Current_Calculation(double RawVolt) {
-  const double K = 2. ;
-  const double G = 80.;
+double Current_Calculation(double RawVolt)
+{
+  const double K = 2.;
+  const double G = 10.;
   const double VREF = 3.3;
-  return (VREF - (K * RawVolt)) / (G * K); //general solve
+  const double RRSense = 0.5 / 1000.; // 0.5 mOhm
+
+  return ((VREF - (K * RawVolt)) / (G * K));
 }

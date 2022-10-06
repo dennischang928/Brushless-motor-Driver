@@ -58,7 +58,7 @@ float target_velocity = -70;
 
 void setup()
 {
-  //  Serial.begin(115200);
+  Serial.begin(115200);
   SPI_SETUP();
 
   pinMode(INHA, OUTPUT);
@@ -114,16 +114,26 @@ void loop()
   }
 
   if (digitalRead(NFAULT) == 0) {
-    Serial.println("NFAULT 0");
+    //    Serial.println("NFAULT 0");
   }
 
-  motor.move(target_velocity);
+  double I_A = (Current_Calculation(analogRead(SO1) / 4096. *3.3));
+  double I_B = (Current_Calculation(analogRead(SO2) / 4096. *3.3));
+  double I_C = -(I_A + I_B);
+  Serial.print(I_A);
+  Serial.print("  ");
+  Serial.println(I_B);
+  //  Serial.print("  ");
+  //  Serial.println(I_C);
+
+  //  motor.move(target_velocity);
 }
 
 double Current_Calculation(double RawVolt) {
-  const double K = 2.;
+  const double K = 2. ;
   const double G = 10.;
   const double VREF = 3.3;
+  const double RRSense = 0.5 / 1000.; // 0.05 mOhm
 
-  return (VREF - (K * RawVolt)) / (G * K); //general solve
+  return ((VREF - (K * RawVolt)) / (G * K)) / RRSense;
 }
