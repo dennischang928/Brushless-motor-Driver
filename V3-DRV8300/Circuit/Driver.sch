@@ -8971,11 +8971,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="78.74" y1="96.52" x2="83.82" y2="96.52" width="0.1524" layer="91"/>
 <label x="83.82" y="96.52" size="1.27" layer="95" xref="yes"/>
 </segment>
-<segment>
-<wire x1="170.18" y1="78.74" x2="172.72" y2="78.74" width="0.1524" layer="91"/>
-<label x="172.72" y="78.74" size="1.27" layer="95" xref="yes"/>
-<pinref part="SO2_SELECTOR" gate="G$1" pin="1"/>
-</segment>
 </net>
 <net name="PA1" class="0">
 <segment>
@@ -8994,6 +8989,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U$1" gate="G$1" pin="PA0"/>
 <wire x1="78.74" y1="91.44" x2="83.82" y2="91.44" width="0.1524" layer="91"/>
 <label x="83.82" y="91.44" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<wire x1="170.18" y1="78.74" x2="172.72" y2="78.74" width="0.1524" layer="91"/>
+<label x="172.72" y="78.74" size="1.27" layer="95" xref="yes"/>
+<pinref part="SO2_SELECTOR" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="PC15" class="0">
@@ -9602,11 +9602,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <approved hash="104,1,251.46,91.44,IC1,PVDD,VIN,,,"/>
 <approved hash="106,1,78.74,121.92,N$4,,,,,"/>
 <approved hash="106,1,38.1,81.28,N$40,,,,,"/>
-<approved hash="106,1,78.74,91.44,PA0,,,,,"/>
-<approved hash="106,1,78.74,93.98,PA1,,,,,"/>
-<approved hash="106,1,78.74,96.52,PA2,,,,,"/>
-<approved hash="106,1,38.1,111.76,PA11,,,,,"/>
-<approved hash="106,1,38.1,109.22,PA12,,,,,"/>
 <approved hash="106,1,38.1,106.68,PA15,,,,,"/>
 <approved hash="106,1,38.1,104.14,PB3,,,,,"/>
 <approved hash="106,1,38.1,99.06,PB5,,,,,"/>
