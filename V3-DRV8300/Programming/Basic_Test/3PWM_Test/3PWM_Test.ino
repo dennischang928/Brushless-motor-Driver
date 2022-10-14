@@ -1,12 +1,12 @@
 #include <SPI.h>
 
 #define INHA PA8
-#define INLA PA9
+#define INLA PB6
 
-#define INHB PA10
-#define INLB PB6
+#define INHB PA9
+#define INLB PB7
 
-#define INHC PB7
+#define INHC PA10
 #define INLC PB8
 #define LED PC13
 
@@ -78,7 +78,7 @@ void loop() {
     Serial.println("NOCTW!!!!!!");
   }
 
-  analogWrite(INHC, 10);
+  analogWrite(INHC, 30);
   digitalWrite(INHB, LOW);
   digitalWrite(INHA, LOW);
 

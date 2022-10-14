@@ -2,16 +2,15 @@
 #include <SPI.h>
 
 #define INHA PA8
-#define INLA PA9
-#define SO1 PB1
+#define INLA PB6
+#define SO1 PA1
 
-#define INHB PA10
-#define INLB PB6
-#define SO2 PB0
+#define INHB PA9
+#define INLB PB7
+#define SO2 PA0
 
-#define INHC PB7
+#define INHC PA10
 #define INLC PB8
-#define SO3 PA3
 
 #define NFAULT PB13
 #define NOCTW PB14
@@ -106,7 +105,15 @@ void setup()
     // init C.S.A.
 
     current_sense.linkDriver(&driver);
-    current_sense.init();
+
+    if (current_sense.init())
+        Serial3.println("Current sense init success!");
+    else
+    {
+        Serial3.println("Current sense init failed!");
+        return;
+    }
+
     current_sense.gain_a *= -1;
     current_sense.gain_b *= -1;
     current_sense.gain_c *= -1;
@@ -115,15 +122,30 @@ void setup()
 
     // init C.S.A.
     // init motor hardware
+
+    motor.linkCurrentSense(&current_sense);
+
     motor.linkDriver(&driver);
+
+    // foc current control parameters (Arduino UNO/Mega)
+    motor.PID_current_q.P = 5;
+    motor.PID_current_q.I = 300;
+    motor.PID_current_d.P = 5;
+    motor.PID_current_d.I = 300;
+    motor.LPF_current_q.Tf = 0.01;
+    motor.LPF_current_d.Tf = 0.01;
 
     motor.voltage_limit = 6; // [V]
 
     motor.foc_modulation = FOCModulationType::SinePWM;
-    motor.controller = MotionControlType::velocity_openloop;
+
+    motor.torque_controller = TorqueControlType::foc_current;
+    // set motion control loop to be used
+    motor.controller = MotionControlType::torque;
 
     motor.init();
 
+    motor.initFOC();
     delay(1);
     SPI_SETUP();
     delay(1);
@@ -134,7 +156,10 @@ void setup()
 
 void loop()
 {
-    driver.setPwm(0, 1, 0);
+    motor.loopFOC();
+
+    motor.move();
+
     PhaseCurrent_s currents = current_sense.getPhaseCurrents();
 
     // Debbuger();
@@ -146,7 +171,10 @@ void loop()
     // {
     //     Serial3.println(data, BIN);
     // }
-    Serial3.println(currents.a);
+    Serial3.print(currents.a); // milli Amps
+    Serial3.print("   ");
+    Serial3.println(currents.b); // milli Amps
+
     // Serial3.print("   ");
     // Serial3.println(currents.b);
 }
