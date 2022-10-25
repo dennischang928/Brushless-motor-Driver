@@ -105,12 +105,11 @@ void setup()
     // init C.S.A.
 
     current_sense.linkDriver(&driver);
-
     if (current_sense.init())
-        Serial3.println("Current sense init success!");
+        Serial.println("Current sense init success!");
     else
     {
-        Serial3.println("Current sense init failed!");
+        Serial.println("Current sense init failed!");
         return;
     }
 
@@ -127,23 +126,13 @@ void setup()
 
     motor.linkDriver(&driver);
 
-    // foc current control parameters (Arduino UNO/Mega)
-    motor.PID_current_q.P = 5;
-    motor.PID_current_q.I = 300;
-    motor.PID_current_d.P = 5;
-    motor.PID_current_d.I = 300;
-    motor.LPF_current_q.Tf = 0.01;
-    motor.LPF_current_d.Tf = 0.01;
-
     motor.voltage_limit = 6; // [V]
 
     motor.foc_modulation = FOCModulationType::SinePWM;
-
-    motor.torque_controller = TorqueControlType::foc_current;
-    // set motion control loop to be used
-    motor.controller = MotionControlType::torque;
+    motor.controller = MotionControlType::velocity_openloop;
 
     motor.init();
+    current_sense.skip_align = true;
 
     motor.initFOC();
     delay(1);
@@ -151,15 +140,14 @@ void setup()
     delay(1);
     changeSPI(); // Setup the registers in the driver
 
+
+
     delay(1000);
 }
 
 void loop()
 {
-    motor.loopFOC();
-
-    motor.move();
-
+    driver.setPwm(0, 0, 3.3);
     PhaseCurrent_s currents = current_sense.getPhaseCurrents();
 
     // Debbuger();
@@ -171,10 +159,7 @@ void loop()
     // {
     //     Serial3.println(data, BIN);
     // }
-    Serial3.print(currents.a); // milli Amps
-    Serial3.print("   ");
-    Serial3.println(currents.b); // milli Amps
-
+    Serial3.println(currents.a);
     // Serial3.print("   ");
     // Serial3.println(currents.b);
 }

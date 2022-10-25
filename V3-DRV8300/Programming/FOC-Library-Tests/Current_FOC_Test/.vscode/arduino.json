@@ -1,0 +1,6 @@
+{
+    "board": "STMicroelectronics:stm32:GenF1",
+    "configuration": "pnum=BLUEPILL_F103C6,upload_method=swdMethod,xserial=generic,usb=none,xusb=FS,opt=osstd,dbg=none,rtlib=nano",
+    "sketch": "Current_FOC_Test.ino",
+    "port": "/dev/tty.usbserial-0001"
+}
