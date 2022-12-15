@@ -2,16 +2,15 @@
 #include <SPI.h>
 
 #define INHA PA8
-#define INLA PA9
-#define SO1 PB1
+#define INLA PB6
+#define SO1 PA1
 
-#define INHB PA10
-#define INLB PB6
-#define SO2 PB0
+#define INHB PA9
+#define INLB PB7
+#define SO2 PA0
 
-#define INHC PB7
+#define INHC PA10
 #define INLC PB8
-#define SO3 PA3
 
 #define NFAULT PB13
 #define NOCTW PB14
@@ -73,7 +72,6 @@ void setup()
 
 	pinMode(INHC, OUTPUT);
 	pinMode(INLC, INPUT);
-	pinMode(SO3, INPUT);
 
 	pinMode(EN_GATE, OUTPUT);
 	pinMode(LED, OUTPUT);
@@ -81,6 +79,7 @@ void setup()
 	pinMode(NOCTW, INPUT);
 
 	driver.voltage_power_supply = 12;
+	driver.voltage_limit = 3;
 	driver.init();
 
 	// link the motor and the driver
@@ -110,6 +109,7 @@ void setup()
 
 void loop()
 {
+	changeSPI();
 	if (digitalRead(NOCTW) == 0)
 	{
 		Serial.println("NOCTW 0");

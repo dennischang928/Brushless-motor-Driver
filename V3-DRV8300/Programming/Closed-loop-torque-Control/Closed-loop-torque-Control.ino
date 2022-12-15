@@ -1,5 +1,6 @@
 #include <SimpleFOC.h>
 #include <SPI.h>
+#include <string>
 
 #define INHA PA8
 #define INLA PB6
@@ -27,128 +28,69 @@
 #define LED PC13
 
 word data;
-HardwareSerial Serial3(PA3, PA2);
 
-void changeSPI()
-{
-    digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
-    data = SPI.transfer16(0b0001000000111000); // 0 0010 00000001000
-    digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
-}
-
-void ReadSPI()
-{
-    digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
-    data = SPI.transfer16(0b1000000000000000); // 1 0010 00000000000
-    digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
-}
-
-void ReadStatus()
-{
-    digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
-    data = SPI.transfer16(0b1000000000000000); // 1 0010 00000001000
-    digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
-}
-
-void SPI_SETUP()
-{
-    SPI.begin();
-    SPI.setBitOrder(MSBFIRST);
-    SPI.setDataMode(SPI_MODE1);
-    SPI.setClockDivider(SPI_CLOCK_DIV16);
-    pinMode(chipSelectPin, OUTPUT);
-}
-
-BLDCMotor motor = BLDCMotor(7, 0.461);
+BLDCMotor motor = BLDCMotor(7);
 BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 
-Encoder encoder = Encoder(A, B, 1000);
+Encoder encoder = Encoder(A, B, 1000, Index);
+
 void doA() { encoder.handleA(); }
 void doB() { encoder.handleB(); }
 void doIndex() { encoder.handleIndex(); }
+HardwareSerial Serial3(PA3, PA2);
 
 void setup()
 {
     Serial3.begin(115200);
-
-    pinMode(INHA, OUTPUT);
-    pinMode(INLA, INPUT);
-    pinMode(SO1, INPUT);
-
-    pinMode(INHB, OUTPUT);
-    pinMode(INLB, INPUT);
-    pinMode(SO2, INPUT);
-
-    pinMode(INHC, OUTPUT);
-    pinMode(INLC, INPUT);
-    // pinMode(SO3, INPUT);
-
     pinMode(EN_GATE, OUTPUT);
-    pinMode(LED, OUTPUT);
     pinMode(NFAULT, INPUT);
     pinMode(NOCTW, INPUT);
 
-    delay(1);
     digitalWrite(EN_GATE, HIGH);
-
+    delay(1);
     SPI_SETUP();
+    delay(10);
+    changeSPI();
 
-    _delay(100);
-
-    for (int i = 0; i < 20; i++)
-    {
-        changeSPI();
-        delay(10);
-    }
-
-    encoder.quadrature = Quadrature::ON;
-
-    // check if you need internal pullups
-    encoder.pullup = Pullup::USE_INTERN;
-
-    // initialize encoder hardware
     encoder.init();
-    encoder.enableInterrupts(doA, doB);
+    encoder.enableInterrupts(doA, doB, doIndex);
+
     motor.linkSensor(&encoder);
 
     Serial3.println("Encoder ready");
 
     driver.voltage_power_supply = 12;
+    driver.voltage_limit = 12;
     driver.init();
 
     motor.linkDriver(&driver);
 
     // limiting motor current (provided resistance)
-    motor.current_limit = 20; // [Amps]
-    motor.voltage_limit = 6;
+    motor.voltage_sensor_align = 0.5;
 
     motor.foc_modulation = FOCModulationType::SpaceVectorPWM;
     motor.torque_controller = TorqueControlType::voltage;
     motor.controller = MotionControlType::torque;
 
+    motor.useMonitoring(Serial3);
+    motor.monitor_variables = _MON_TARGET | _MON_VEL | _MON_VOLT_Q | _MON_VOLT_D;
+
+    motor.monitor_downsample = 100; // default 10
+
     motor.init();
-    // align sensor and start FOC
     motor.initFOC();
-
-    // set the initial motor target
-    motor.target = 1; // Amps - if phase resistance defined
-    // motor.target = 1; // Volts
-
     Serial3.println("Motor ready");
+    changeSPI();
     _delay(1000);
 }
 
+float i = 0;
+
 void loop()
 {
-    // main FOC algorithm function
-    changeSPI();
+    i += 0.0001;
+    motor.monitor();
     motor.loopFOC();
-
-    // Motion control function
-
-    motor.move();
-
-    // driver.setPwm(0, 0, 1);
-    // user communication
-    // command.run();
+    motor.move(constrain(i, 0, 1));
+    // Serial3.println(Angle);
 }

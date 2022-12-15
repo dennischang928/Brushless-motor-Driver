@@ -125,32 +125,24 @@ void setup()
 
 void loop()
 {
-    driver.setPwm(12, 12, 12);
-    // Debbuger();
-    // analogWrite(INHA, 63);
-    // digitalWrite(INHB, LOW);
-    // digitalWrite(INHC, LOW);
-    // PhaseCurrent_s current = current_sense.getPhaseCurrents();
-    // if (data != 0)
-    // {
-    //     Serial3.println(data, BIN);
-    // }
-    Serial3.print(Current_Calculation(analogRead(SO1) / 4096. * 3.3));
-    Serial3.print("    ");
-    Serial3.println(Current_Calculation(analogRead(SO2) / 4096. * 3.3));
+    // driver.setPwm(0, 1, 0);
+    Debbuger();
+    // Serial3.print(Current_Calculation(analogRead(SO1) / 4096. * 3.3));
+    // Serial3.print("    ");
+    // Serial3.println(Current_Calculation(analogRead(SO2) / 4096. * 3.3));
 }
 
 void Debbuger()
 {
-    if (digitalRead(NFAULT) == LOW)
-    {
-        Serial3.println("NFAULT Detected");
-    }
+    // if (digitalRead(NFAULT) == LOW)
+    // {
+    //     Serial3.println("NFAULT Detected");
+    // }
 
-    if (digitalRead(NOCTW) == LOW)
-    {
-        Serial3.println("NOCTW Detected");
-    }
+    // if (digitalRead(NOCTW) == LOW)
+    // {
+    //     Serial3.println("NOCTW Detected");
+    // }
 
     ReadStatus(0b1000000000000000);
     if (data != 0)

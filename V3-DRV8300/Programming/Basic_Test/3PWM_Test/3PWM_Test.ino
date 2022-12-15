@@ -20,25 +20,27 @@ word data;
 
 void changeSPI()
 {
-  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
-  data = SPI.transfer16(0b0001000000111000); //0 0010 00000001000
-  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b0001000000111000); // 0 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
 void ReadStatus()
 {
-  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
-  data = SPI.transfer16(0b1000000000000000); //1 0010 00000001000
-  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1000000000000000); // 1 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
-void ReadSPI () {
-  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
-  data = SPI.transfer16(0b1001000000000000); //1 0010 00000000000
-  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+void ReadSPI()
+{
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1001000000000000); // 1 0010 00000000000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
-void setup() {
+void setup()
+{
   SPI.begin();
   SPI.setBitOrder(MSBFIRST);
   SPI.setDataMode(SPI_MODE1);
@@ -61,25 +63,30 @@ void setup() {
   pinMode(LED, OUTPUT);
   digitalWrite(EN_GATE, HIGH);
 
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < 20; i++)
+  {
     changeSPI();
     delay(10);
   }
 }
 
-void loop() {
+void loop()
+{
+  delay(5000);
+
   ReadStatus();
-  if (digitalRead(NFAULT) == 0) {
+  if (digitalRead(NFAULT) == 0)
+  {
     Serial.println(data, BIN);
     Serial.println("NFAULT!!!!!!");
   }
-  if (digitalRead(NOCTW) == 0) {
+  if (digitalRead(NOCTW) == 0)
+  {
     Serial.println(data, BIN);
     Serial.println("NOCTW!!!!!!");
   }
 
-  analogWrite(INHC, 30);
-  digitalWrite(INHB, LOW);
-  digitalWrite(INHA, LOW);
-
+  analogWrite(INHC, 0.5);
+  analogWrite(INHB, 0);
+  analogWrite(INHA, 0);
 }

@@ -34,12 +34,12 @@ BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 LowsideCurrentSense current_sense = LowsideCurrentSense(0.00275256, 10, SO1, SO2, _NC);
 
 // Target variable
-float target_velocity = -70;
+float target_velocity = -10;
 
 void changeSPI()
 {
     digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
-    data = SPI.transfer16(0b0001000000111000); // 0 0010 00000001000
+    data = SPI.transfer16(0b0001001000111000); // 0 0010 00000001000
     digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
@@ -101,7 +101,7 @@ void setup()
     digitalWrite(EN_GATE, HIGH);
 
     driver.voltage_power_supply = 12;
-    driver.voltage_limit = 12;
+    driver.voltage_limit = 1;
     driver.init();
 
     // init C.S.A.
@@ -128,9 +128,9 @@ void setup()
 
     motor.linkDriver(&driver);
 
-    motor.voltage_limit = 6; // [V]
+    motor.voltage_limit = 0.5; // [V]
 
-    motor.foc_modulation = FOCModulationType::SinePWM;
+    // motor.foc_modulation = FOCModulationType::SinePWM;
     motor.controller = MotionControlType::velocity_openloop;
 
     motor.init();
@@ -148,11 +148,11 @@ void setup()
 void loop()
 {
     // changeSPI();
-    motor.move(0);
-
-    PhaseCurrent_s currents = current_sense.getPhaseCurrents();
-    digitalWrite(PB5, LOW);
-    Serial3.println(currents.b);
+    motor.move(target_velocity);
+    // Debbuger();
+    // PhaseCurrent_s currents = current_sense.getPhaseCurrents();
+    // digitalWrite(PB5, LOW);
+    // Serial3.println(currents.b);
     // Serial3.print("   ");
     // Serial3.println(currents.b);
 }

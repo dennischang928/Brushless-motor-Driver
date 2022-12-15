@@ -1,0 +1,6 @@
+{
+    "port": "/dev/tty.usbserial-0001",
+    "configuration": "pnum=GENERIC_F103C8TX,upload_method=swdMethod,xserial=disabled,usb=none,xusb=FS,opt=osstd,dbg=none,rtlib=nano",
+    "board": "STMicroelectronics:stm32:GenF1",
+    "sketch": "Closed-loop-torque-Control.ino"
+}

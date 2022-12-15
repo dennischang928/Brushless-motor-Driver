@@ -18,33 +18,37 @@
 #define chipSelectPin PA4
 word data;
 
+HardwareSerial Serial3(PA3, PA2);
+
 void changeSPI()
 {
-  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
-  data = SPI.transfer16(0b0001000000001000); //0 0010 00000001000
-  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b0001000000001000); // 0 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
 void ReadStatus()
 {
-  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
-  data = SPI.transfer16(0b1000000000000000); //1 0010 00000001000
-  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1000000000000000); // 1 0010 00000001000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
-void ReadSPI () {
-  digitalWrite(chipSelectPin, LOW); // manually take CSN low for SPI_1 transmission
-  data = SPI.transfer16(0b1001000000000000); //1 0010 00000000000
-  digitalWrite(chipSelectPin, HIGH); // manually take CSN high between spi transmissions
+void ReadSPI()
+{
+  digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+  data = SPI.transfer16(0b1001000000000000); // 1 0010 00000000000
+  digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
-void setup() {
+void setup()
+{
   SPI.begin();
   SPI.setBitOrder(MSBFIRST);
   SPI.setDataMode(SPI_MODE1);
   SPI.setClockDivider(SPI_CLOCK_DIV16);
   pinMode(chipSelectPin, OUTPUT);
-  Serial.begin(115200);
+  Serial3.begin(115200);
   pinMode(INHA, OUTPUT);
   pinMode(INLA, OUTPUT);
   pinMode(INHB, OUTPUT);
@@ -58,14 +62,16 @@ void setup() {
   pinMode(LED, OUTPUT);
   digitalWrite(EN_GATE, HIGH);
 
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < 20; i++)
+  {
     changeSPI();
     delay(10);
   }
 }
 
-void loop() {
+void loop()
+{
   delay(100);
   ReadSPI();
-  Serial.println(data, BIN);
+  Serial3.println(data, BIN);
 }
