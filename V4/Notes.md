@@ -11,11 +11,11 @@
     - PIN
       -  INHA PA8
       -  INLA PB6
-      -  SO1 **PA11**or PA1
+      -  SO1 **PA11**
          
       -  INHB PA9
       -  INLB PB7
-      -  SO2 **PA12** or PA0
+      -  SO2 **PA12**
          
       -  INHC PA10
       -  INLC PB8
@@ -31,9 +31,7 @@
          -  We SDI / MOSI PA7
          -  SCLK PA5
 
-**For Resistors and Capacitors, use 0603 size.**
-
-**Use T-stop Layer for non-綠油層**
+**For Resistors and Capacitors, use 0603 package.**
 
 ## Programming
 
@@ -43,10 +41,3 @@
     - Library
       [eXoCAN](https://github.com/exothink/eXoCAN)
       - 
-- SPI Test
-  Senduing write command: 0001011111110111
-  Second try: 0 0010 11111110011
-  ---------^^-Write Command-^^--------
-  Sending read command: 1001000000000000
-  Second try: 0
-  ---------^^-Read Command-^^--------zZ
