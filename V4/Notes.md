@@ -4,6 +4,9 @@
 
 - MCU
   - STM32F103C8T6 (Blue pill)
+    - Serial PIN
+      - RX PA3 
+      - TX PA2
 - Mosfet
   - IRLR7843 (CMOSE)
 - Mosfet Driver
@@ -11,11 +14,11 @@
     - PIN
       -  INHA PA8
       -  INLA PB6
-      -  SO1 **PA11**
+      -  SO1 **PA1**
          
       -  INHB PA9
       -  INLB PB7
-      -  SO2 **PA12**
+      -  SO2 **PA0**
          
       -  INHC PA10
       -  INLC PB8
@@ -31,13 +34,11 @@
          -  We SDI / MOSI PA7
          -  SCLK PA5
 
-**For Resistors and Capacitors, use 0603 package.**
+- Encoder
+  - AS5047P
+    - PIN
+      - A PA11
+      - B PA12
+      - Index PA15
 
-## Programming
-
-- MCU
-
-  - Can Bus
-    - Library
-      [eXoCAN](https://github.com/exothink/eXoCAN)
-      - 
+**For Resistors and Ceramic Capacitors, use 0603 package.**
