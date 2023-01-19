@@ -87,6 +87,6 @@ void loop()
   }
 
   analogWrite(INHC, 0.5);
-  analogWrite(INHB, 0);
+  analogWrite(INHB, 100);
   analogWrite(INHA, 0);
 }
