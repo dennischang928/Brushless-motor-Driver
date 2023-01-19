@@ -4,11 +4,11 @@
 #define INLA PA9
 #define SO1 PB1
 
-#define INHB PA10
+#define INHB PA9
 #define INLB PB6
 #define SO2 PB0
 
-#define INHC PB7
+#define INHC PA10
 #define INLC PB8
 #define LED PC13
 
@@ -85,7 +85,7 @@ void loop()
     while (true)
     {
         digitalWrite(INHA, LOW);
-        analogWrite(INHB, 255);
+        analogWrite(INHB, 0);
         digitalWrite(INHC, LOW);
 
         Serial3.println(Amplified_Volt2Current(analogRead(SO1) / 1023. * 3.3), 6); // be careful of the resolution. In the case, the analogRead() Function resolution is 1023
