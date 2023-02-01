@@ -1,5 +1,7 @@
 #include <SimpleFOC.h>
 #include <SPI.h>
+#include <MovingAverage.h>
+
 #include <string>
 
 #define INHA PA8
@@ -17,6 +19,7 @@
 #define NOCTW PB14
 
 #define EN_GATE PB12
+#define DC_CAL PB4
 
 #define LED PC13
 
@@ -33,6 +36,9 @@ float Velocity = 0;
 
 BLDCMotor motor = BLDCMotor(7);
 BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
+
+MovingAverage CurrentAmpliferA(2);
+MovingAverage CurrentAmpliferB(2);
 
 Encoder encoder = Encoder(A, B, 1000, Index);
 
@@ -67,11 +73,22 @@ void setup()
     pinMode(NFAULT, INPUT);
     pinMode(NOCTW, INPUT);
 
+    //=========New code Below========
+    pinMode(DC_CAL, OUTPUT);
+
+    digitalWrite(EN_GATE, HIGH);
+    digitalWrite(DC_CAL, LOW);
+
+    pinMode(SO1, INPUT);
+    pinMode(SO2, INPUT);
+    //=========New code Above========
+
     digitalWrite(EN_GATE, HIGH);
     delay(1);
     SPI_SETUP();
     delay(10);
-    changeSPI();
+    changeSPI3PWM();
+    changeSPIGAIN2_80();
 
     encoder.quadrature = Quadrature::OFF;
     encoder.pullup = Pullup::USE_INTERN;
@@ -86,7 +103,8 @@ void setup()
     driver.voltage_power_supply = 12;
     driver.voltage_limit = 12;
     driver.init();
-    changeSPI();
+    changeSPI3PWM();
+    changeSPIGAIN2_80();
 
     motor.linkDriver(&driver);
 
@@ -138,9 +156,24 @@ int i = 0;
 
 void loop()
 {
-    motor.monitor();
+    // motor.monitor();
     float target_voltage = PIDv(Velocity - LPFv(motor.shaft_velocity));
     motor.move(target_voltage);
     motor.loopFOC();
+
+    Serial3.print("A: ");
+    Serial3.print(GetShuntResistorVoltage(CurrentAmpliferA.addSample((analogRead(SO1) / 4096. * 3.3))) * 1000000., 6); // microvolt
+    Serial3.print(" B: ");
+    Serial3.println(GetShuntResistorVoltage(CurrentAmpliferB.addSample((analogRead(SO2) / 4096. * 3.3))) * 1000000., 6); // microvolt
+
     commands.run();
+    //This program is so stupid, moving the motor, measuring the current while not aligning the measuring time and pwm time
+    //The only purpose of this program is to check if the current value responds to the motor moving velocity
+}
+
+double GetShuntResistorVoltage(double RawVolt)
+{
+    const double G = 80.;
+    const double VREF = 3.3;
+    return ((VREF / 2.) - RawVolt) / G; // general solve
 }

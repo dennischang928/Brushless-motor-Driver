@@ -30,8 +30,8 @@ BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 
 HardwareSerial Serial3(PA3, PA2);
 
-MovingAverage CurrentAmpliferA(40);
-MovingAverage CurrentAmpliferB(40);
+MovingAverage CurrentAmpliferA(20);
+MovingAverage CurrentAmpliferB(20);
 
 // target variable
 float target_velocity = -70;
@@ -82,13 +82,13 @@ void setup()
     pinMode(INLC, OUTPUT);
 
     pinMode(EN_GATE, OUTPUT);
-    pinMode(DC_CAL, OUTPUT);
+    pinMode(DC_CAL, INPUT);
 
     pinMode(LED, OUTPUT);
     pinMode(NFAULT, INPUT);
     pinMode(NOCTW, INPUT);
 
-    digitalWrite(DC_CAL, LOW);
+    // digitalWrite(DC_CAL, HIGH);
 
     driver.voltage_power_supply = 12;
     driver.voltage_limit = 12;
@@ -130,16 +130,16 @@ void loop()
         Timer = millis();
     }
 
-    driver.setPwm(0, i, 0);
-    Serial3.print("A: ");
-    Serial3.println(GetShuntResistorVoltage(CurrentAmpliferA.addSample((analogRead(SO1) / 4096. * 3.3))) / 3E-5, 6);
-    // Serial3.print(" B: ");
-    // Serial3.println(GetShuntResistorVoltage(CurrentAmpliferB.addSample((analogRead(SO2) / 4096. * 3.3))) / 3E-5, 6);
+    driver.setPwm(0, 0, 0);
+    // Serial3.print("A: ");
+    // Serial3.print(GetShuntResistorVoltage(CurrentAmpliferA.addSample((analogRead(SO1) / 4096. * 3.3))) / 0.05e-3, 6);
+    Serial3.print(" B: ");
+    Serial3.println(GetShuntResistorVoltage(CurrentAmpliferB.addSample((analogRead(SO2) / 4096. * 3.3))) / 0.05e-3, 6);
 }
 
 double GetShuntResistorVoltage(double RawVolt)
 {
-    const double G = 10.;
+    const double G = 80.;
     const double VREF = 3.3;
     return ((VREF / 2.) - RawVolt) / G; // general solve
 }
