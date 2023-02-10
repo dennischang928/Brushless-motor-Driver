@@ -52,6 +52,9 @@ void setup()
     delay(10);
     changeSPI();
 
+    encoder.quadrature = Quadrature::OFF;
+    encoder.pullup = Pullup::USE_INTERN;
+
     encoder.init();
     encoder.enableInterrupts(doA, doB, doIndex);
 
@@ -60,8 +63,9 @@ void setup()
     Serial3.println("Encoder ready");
 
     driver.voltage_power_supply = 12;
-    driver.voltage_limit = 12;
+    driver.voltage_limit = 2;
     driver.init();
+    changeSPI();
 
     motor.linkDriver(&driver);
 
@@ -69,28 +73,53 @@ void setup()
     motor.voltage_sensor_align = 0.5;
 
     motor.foc_modulation = FOCModulationType::SpaceVectorPWM;
-    motor.torque_controller = TorqueControlType::voltage;
-    motor.controller = MotionControlType::torque;
+    motor.controller = MotionControlType::angle;
+
+    motor.voltage_limit = 1; // Volts - default driver.voltage_limit
+
+    motor.PID_velocity.P = 0.2;
+    motor.PID_velocity.I = 0.3;
+    motor.PID_velocity.D = 0.0006;
+    // jerk control using voltage voltage ramp
+    // default value is 300 volts per sec  ~ 0.3V per millisecond
+    motor.PID_velocity.output_ramp = 1000;
+
+    // velocity low pass filtering
+    // default 5ms - try different values to see what is the best.
+    // the lower the less filtered
+    motor.LPF_velocity.Tf = 0.3;
+    motor.P_angle.P = 16;
 
     motor.useMonitoring(Serial3);
-    motor.monitor_variables = _MON_TARGET | _MON_VEL | _MON_VOLT_Q | _MON_VOLT_D;
-
+    motor.monitor_variables = _MON_TARGET | _MON_VOLT_Q | _MON_ANGLE;
+    // default _MON_TARGET | _MON_VOLT_Q | _MON_VEL | _MON_ANGLE
     motor.monitor_downsample = 100; // default 10
 
     motor.init();
     motor.initFOC();
+
     Serial3.println("Motor ready");
-    changeSPI();
+    Serial3.println("----------------------------");
+    Serial3.print(motor.zero_electric_angle);
+    Serial3.print(", ");
+    Serial3.println(motor.sensor_direction == 1 ? "Direction::CW" : "Direction::CCW");
+    Serial3.println("----------------------------");
+
     _delay(1000);
 }
 
-float i = 0;
+long Timer = millis();
 
+int Position_Value = 1;
 void loop()
 {
-    i += 0.0001;
+    if (millis() - Timer >= 300)
+    {
+        Position_Value = 0 - Position_Value;
+        Timer = millis();
+    }
+
     motor.monitor();
+    motor.move(Position_Value);
     motor.loopFOC();
-    motor.move(constrain(i, 0, 1));
-    // Serial3.println(Angle);
 }

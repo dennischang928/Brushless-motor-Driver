@@ -33,7 +33,7 @@ word data;
 BLDCMotor motor = BLDCMotor(7);
 BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 
-LowsideCurrentSense current_sense = LowsideCurrentSense(0.005, 10, SO1, SO2, _NC);
+LowsideCurrentSense current_sense = LowsideCurrentSense(0.000001, 80, SO1, SO2, _NC);
 
 HardwareSerial Serial3(PA3, PA2);
 
@@ -83,20 +83,20 @@ float i = 1;
 
 void loop()
 {
-    // if (millis() - Timer >= 300)
-    // {
-    //     if (i == 1)
-    //     {
-    //         i = 0;
-    //     }
-    //     else
-    //     {
-    //         i = 1;
-    //     }
-    //     Timer = millis();
-    // }
+    if (millis() - Timer >= 300)
+    {
+        if (i == 1)
+        {
+            i = 0;
+        }
+        else
+        {
+            i = 1;
+        }
+        Timer = millis();
+    }
 
-    driver.setPwm(0, 0, 12);
+    driver.setPwm(i, 0, i);
     PhaseCurrent_s currents = current_sense.getPhaseCurrents();
 
     Serial3.print(currents.a, 6); // milli Amps

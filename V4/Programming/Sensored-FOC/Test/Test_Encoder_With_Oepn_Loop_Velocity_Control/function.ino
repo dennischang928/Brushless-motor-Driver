@@ -1,11 +1,36 @@
 
-void changeSPI()
+void GetAndPrintCurrentValue()
+{
+    PhaseCurrent_s currents = current_sense.getPhaseCurrents();
+
+    Serial3.print(currents.a, 6); // milli Amps
+    Serial3.print("\t");
+    Serial3.println(currents.b, 6); // milli Amps
+}
+
+void GetAndPrint_FOC_CurrentValue(float angle_el)
+{
+    DQCurrent_s currents = current_sense.getFOCCurrents(angle_el);
+    Serial3.print("D:");          // milli Amps
+    Serial3.print(currents.d, 6); // milli Amps
+    Serial3.print("\t");
+    Serial3.print("Q:");            // milli Amps
+    Serial3.println(currents.q, 6); // milli Amps
+}
+
+double GetShuntResistorVoltage(double RawVolt)
+{
+    const double G = 80.;
+    const double VREF = 3.3;
+    return ((VREF / 2.) - RawVolt) / G; // general solve
+}
+
+void changeSPI3PWM()
 {
     digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
     data = SPI.transfer16(0b0001001000111000); // 0 0010 00000001000
     digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
-
 void changeSPIGAIN2_80()
 {
     digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
