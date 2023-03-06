@@ -6,13 +6,26 @@ void changeSPI()
     digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
 
+void changeSPIGAIN2_20()
+{
+    digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+    data = SPI.transfer16(0b0001100000000100); // 0 0011 00000001000
+    digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
+}
+
+void changeSPIGAIN2_40()
+{
+    digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
+    data = SPI.transfer16(0b0001100000001000); // 0 0011 00000001000
+    digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
+}
+
 void changeSPIGAIN2_80()
 {
     digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission
     data = SPI.transfer16(0b0001100000001100); // 0 0011 00000001000
     digitalWrite(chipSelectPin, HIGH);         // manually take CSN high between spi transmissions
 }
-
 void ReadSPI()
 {
     digitalWrite(chipSelectPin, LOW);          // manually take CSN low for SPI_1 transmission

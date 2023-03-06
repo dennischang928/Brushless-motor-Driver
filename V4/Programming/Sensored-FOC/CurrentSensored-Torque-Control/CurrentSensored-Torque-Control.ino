@@ -36,7 +36,7 @@ word data;
 BLDCMotor motor = BLDCMotor(7);
 BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 
-LowsideCurrentSense current_sense = LowsideCurrentSense(0.007, 20, SO2, SO1, _NC);
+LowsideCurrentSense current_sense = LowsideCurrentSense(0.00658395332, -20, SO1, SO2);
 
 Encoder encoder = Encoder(A, B, 1000, Index);
 
@@ -76,7 +76,8 @@ void setup()
     Serial3.println("Encoder ready");
 
     driver.voltage_power_supply = 12;
-    driver.voltage_limit = 2;
+    driver.voltage_limit = 3;
+
     driver.init();
 
     motor.linkDriver(&driver);
@@ -95,43 +96,45 @@ void setup()
     //-----------------Current Sensor Setup Above-----------------
 
     // limiting motor current (provided resistance)
-    motor.voltage_sensor_align = 0.1;
+    motor.voltage_sensor_align = 0.6;
 
-    motor.foc_modulation = FOCModulationType::SpaceVectorPWM;
+    motor.foc_modulation = FOCModulationType::SinePWM;
     motor.torque_controller = TorqueControlType::foc_current;
     motor.controller = MotionControlType::torque;
 
     //======================P axis and D axis PID below======================
-    motor.PID_current_q.P = 1.7;
-    motor.PID_current_q.I = 80;
-    motor.PID_current_q.D = 0.0005;
+    motor.PID_current_q.P = 1;
+    motor.PID_current_q.I = 0.2;
 
-    motor.PID_current_d.P = 0.0010;
-    motor.PID_current_d.I = 0.02;
-    motor.PID_current_d.D = 0.003;
+    motor.PID_current_d.P = 0;
+    motor.PID_current_d.I = 0;
 
     motor.LPF_current_q.Tf = 0.02;
     motor.LPF_current_d.Tf = 0.03;
 
     motor.useMonitoring(Serial3);
     motor.monitor_variables = _MON_CURR_Q | _MON_CURR_D;
-
+    motor.sensor_direction = Direction::CW;
     motor.monitor_downsample = 1; // default 10
+
     motor.init();
     motor.initFOC();
     Serial3.println("Motor ready");
+    Serial3.println(motor.sensor_direction);
+    delay(4000);
     //================SimpleFOC setup Above================
 }
 
 void loop()
 {
     motor.loopFOC();
-    motor.move(1);
+    motor.move(0.5);
     motor.monitor();
     // Serial3.print("\t");
     // GetAndPrintCurrentValue();
-    // GetAndPrint_FOC_CurrentValue(motor.electricalAngle());
-    // Serial3.println("");
+    // Serial3.println(encoder.getMechanicalAngle());
+
+    // Serial3.println(motor.electricalAngle());
 }
 
 void GetAndPrintCurrentValue()
@@ -141,6 +144,8 @@ void GetAndPrintCurrentValue()
     Serial3.print(currents.a, 6); // milli Amps
     Serial3.print("\t");
     Serial3.print(currents.b, 6); // milli Amps
+    Serial3.print("\t");
+    Serial3.print(-currents.a - currents.b, 6);
     Serial3.print("\t");
 }
 
@@ -154,8 +159,8 @@ void GetAndPrint_FOC_CurrentValue(float angle_el)
     Serial3.print(currents.q, 6); // milli Amps
     Serial3.print("\t");
     // Serial3.print("Q:");            // milli Amps
-    Serial3.print(currents.d, 6); // milli Amps
-    Serial3.print("\t");
+    Serial3.println(currents.d, 6); // milli Amps
+    // Serial3.print("\t");
 }
 
 // void GetAndPrint_AnalogReadCurrentValue()

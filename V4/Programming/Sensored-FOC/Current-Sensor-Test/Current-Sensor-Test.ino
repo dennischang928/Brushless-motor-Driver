@@ -33,7 +33,7 @@ word data;
 BLDCMotor motor = BLDCMotor(7);
 BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 
-LowsideCurrentSense current_sense = LowsideCurrentSense(0.005, 10, SO1, SO2, _NC);
+LowsideCurrentSense current_sense = LowsideCurrentSense(1, 20, SO1, SO2, _NC);
 
 HardwareSerial Serial3(PA3, PA2);
 
@@ -53,6 +53,7 @@ void setup()
     SPI_SETUP();
     delay(10);
     changeSPI();
+    changeSPIGAIN2_20();
     // ^^================MCU and DRV8303 setup================^^
 
     driver.voltage_power_supply = 12;
@@ -83,24 +84,11 @@ float i = 1;
 
 void loop()
 {
-    // if (millis() - Timer >= 300)
-    // {
-    //     if (i == 1)
-    //     {
-    //         i = 0;
-    //     }
-    //     else
-    //     {
-    //         i = 1;
-    //     }
-    //     Timer = millis();
-    // }
-
-    driver.setPwm(0, 0, 12);
+    driver.setPwm(12, 12, 12);
     PhaseCurrent_s currents = current_sense.getPhaseCurrents();
 
-    Serial3.print(currents.a, 6); // milli Amps
-    Serial3.print("\t");
+    // Serial3.println(currents.a, 6); // milli Amps
+    // Serial3.print("\t");
     Serial3.println(currents.b, 6); // milli Amps
 }
 

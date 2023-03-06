@@ -52,10 +52,10 @@ void SPI_SETUP()
 	pinMode(chipSelectPin, OUTPUT);
 }
 
-BLDCMotor motor = BLDCMotor(6);
+BLDCMotor motor = BLDCMotor(14);
 BLDCDriver3PWM driver = BLDCDriver3PWM(INHA, INHB, INHC, EN_GATE);
 // target variable
-float target_velocity = -70;
+float target_velocity = -1;
 
 void setup()
 {
@@ -79,7 +79,7 @@ void setup()
 	pinMode(NOCTW, INPUT);
 
 	driver.voltage_power_supply = 12;
-	driver.voltage_limit = 1;
+	driver.voltage_limit = 0.5;
 	driver.init();
 
 	// link the motor and the driver
@@ -87,7 +87,7 @@ void setup()
 
 	// limiting motor current (provided resistance)
 	motor.current_limit = 20; // [Amps]
-	motor.voltage_limit = 6;
+	// motor.voltage_limit = 0.5;
 
 	// open loop control config
 	motor.foc_modulation = FOCModulationType::SinePWM;
